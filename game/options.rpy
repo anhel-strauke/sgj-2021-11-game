@@ -35,6 +35,13 @@ define config.window_hide_transition = Dissolve(.2)
 default preferences.text_cps = 80
 default preferences.afm_time = 15
 
+## Save system settings
+
+define config.has_autosave = False
+define config.autosave_slots = 0
+
+define config.thumbnail_width = 133
+define config.thumbnail_height = 75
 
 ## Директория сохранений #######################################################
 ##

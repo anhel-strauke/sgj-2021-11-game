@@ -1,7 +1,7 @@
 screen settings():
     tag menu
     add "ui_images/main_menu_background.png"
-    text _("Настройки") style "settings_title"
+    text _("Настройки") style "secondary_screen_title"
     vbox:
         style "settings_vbox"
         $ grid_rows = (2 if renpy.variant("pc") else 0) + (1 if config.has_sound or config.has_music else 0) + (1 if config.has_sound else 0) + (1 if config.has_music else 0)
@@ -23,17 +23,10 @@ screen settings():
             if config.has_sound:
                 text _("Звук")
                 bar value Preference("sound volume")
-        null height 40
-        if main_menu:
-            textbutton _("Вернуться") action Return() style "back_button"
-        else:
-            textbutton _("Вернуться") action ShowMenu("game_menu") style "back_button"
-
-        
-style settings_title is ui_text:
-    size 60
-    xalign 0.5
-    yalign 0.2
+    if main_menu:
+        textbutton _("Вернуться") action Return() style "back_button"
+    else:
+        textbutton _("Вернуться") action ShowMenu("game_menu") style "back_button"
 
 style settings_vbox:
     xalign 0.5

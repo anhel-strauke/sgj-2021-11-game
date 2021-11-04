@@ -30,9 +30,11 @@ init python:
         return renpy.can_load(autosave_file_name)
     
     def ss_set_info(*args):
+        global save_game_info
         save_game_info = "|".join(args)
 
     def ss_savepoint():
+        global save_game_info
         if not renpy.in_rollback():
             renpy.take_screenshot()
             renpy.save(autosave_file_name, extra_info=save_game_info)
@@ -42,7 +44,7 @@ init python:
     def _make_save_file_name(save_index):
         return (save_file_name_prefix + u"%d") % save_index
     
-    def _new_save_index(existing_slots=None):
+    def ss_new_save_index(existing_slots=None):
         # existing_slots should be a result of list_save_slots()
         if existing_slots is None:
             existing_slots = ss_list_save_slots()
@@ -54,20 +56,22 @@ init python:
         return max_index + 1
 
     def ss_save_game(save_to_index=None):
+        global save_game_info
         if save_to_index is not None:
             new_save_filename = _make_save_file_name(save_to_index)
         else:
-            new_save_filename = _make_save_file_name(_new_save_index())
+            new_save_filename = _make_save_file_name(ss_new_save_index())
         if ss_has_continue():
             renpy.copy_save(autosave_file_name, new_save_filename)
         else:
             renpy.take_screenshot()
+            print "Saving \"" + save_game_info + "\""
             renpy.save(new_save_filename, extra_info=save_game_info)
 
     def ss_continue_game():
         renpy.load(autosave_file_name)
     
-    def ss_load_save_file(save_index):
+    def ss_load_game(save_index):
         save_file_name = _make_save_file_name(save_index)
         if renpy.can_load(save_file_name):
             renpy.copy_save(save_file_name, autosave_file_name)
@@ -99,3 +103,46 @@ init python:
         
         def __call__(self):
             ss_continue_game()
+    
+
+    class LoadFromSlot(Action, DictEquality):
+        def __init__(self, slot_index):
+            self._slot_index = slot_index
+        
+        def get_sensitive(self):
+            return renpy.can_load(_make_save_file_name(self._slot_index))
+        
+        def __call__(self):
+            if not self.get_sensitive():
+                return
+            ss_load_game(self._slot_index)
+
+
+    class SaveToSlot(Action, DictEquality):
+        def __init__(self, slot_index):
+            self._slot_index = slot_index
+        
+        def get_sensitive(self):
+            return True
+        
+        def __call__(self):
+            ss_save_game(self._slot_index)
+    
+
+    class DeleteSaveSlot(Action, DictEquality):
+        def __init__(self, slot_index):
+            self._slot_index = slot_index
+        
+        def get_sensitive(self):
+            return renpy.can_load(_make_save_file_name(self._slot_index))
+        
+        def __call__(self):
+            if not self.get_sensitive():
+                return
+            filename = _make_save_file_name(self._slot_index)
+            renpy.unlink_save(filename)
+
+    def SaveSlotAction(do_save, slot_index):
+        if do_save:
+            return [SaveToSlot(slot_index), Return()]
+        return LoadFromSlot(slot_index)

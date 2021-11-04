@@ -15,9 +15,15 @@ label start:
 
     show eileen happy
 
+    $ ss_set_info("Сохранение")
+
+    pause 0.1
+
+    $ ss_savepoint()
+
     e "Вы создали новую игру Ren'Py."
 
-    $ ss_save_game(0)
+    $ ss_save_game(ss_new_save_index())
 
     e "Добавьте сюжет, изображения и музыку и отправьте её в мир!"
 

@@ -1,5 +1,5 @@
 define gui.about = _("""Эта игра создана во время {a=https://sibgamejam.com/}Siberian Game Jam{/a} в ноябре 2021.
-Тема джема: ???
+Тема джема: «Закон Мёрфи».
 
 © 2021 Scientific Forest
 
@@ -24,7 +24,7 @@ screen about():
     tag menu
     fixed:
         add "ui_images/main_menu_background.png"
-        text _("Создатели") style "settings_title"
+        text _("Создатели") style "secondary_screen_title"
         fixed:
             style_prefix "about_vp"
             viewport:
@@ -44,6 +44,6 @@ screen about():
 style about_vp_fixed:
     xalign 0.5
     yanchor 0.0
-    ypos 0.25
+    ypos 0.30
     xsize (1920/3*2)
-    ysize (1080/2+132)
+    ysize (1080/2 + 50)

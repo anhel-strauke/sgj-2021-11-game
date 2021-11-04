@@ -81,12 +81,6 @@ define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = "#444444"
 define gui.choice_spacing = 33
 
-
-## Todo: move to options.rpy?
-define config.thumbnail_width = 384
-define config.thumbnail_height = 216
-
-
 ## See. skip screen
 define gui.skip_ypos = 15
 

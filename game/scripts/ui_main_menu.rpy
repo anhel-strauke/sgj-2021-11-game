@@ -8,12 +8,12 @@ screen main_menu():
         if ss_has_continue():
             textbutton _("Продолжить") action ContinueGame() style "main_menu_cta_button"
             if ss_has_saves():
-                textbutton _("Сохранения") action ShowMenu("saves")
+                textbutton _("Сохранения") action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
             textbutton _("Начать заново") action Confirm(_("Вы хотите начать игру заново? Весь несохранённый прогресс будет потерян."), yes=Start(), confirm_selected=True)
         else:
             textbutton _("Начать") action Start() style "main_menu_cta_button"
             if ss_has_saves():
-                textbutton _("Сохранения")
+                textbutton _("Сохранения") action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
         textbutton _("Настройки") action ShowMenu("settings", _transition=CropMove(0.3, "slideleft"))
         textbutton _("Создатели") action ShowMenu("about", _transition=CropMove(0.3, "slideleft"))
         if renpy.variant("pc"):
