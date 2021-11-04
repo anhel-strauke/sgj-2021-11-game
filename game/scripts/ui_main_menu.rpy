@@ -1,7 +1,7 @@
 screen main_menu():
     tag menu
     add "ui_images/main_menu_background.png"
-    text "Game Title" style "main_menu_title" at:
+    text "Courier Story" style "main_menu_title" at:
         xalign 0.5 yanchor 0.5 ypos 0.3
     vbox:
         style_prefix "main_menu"
@@ -9,7 +9,12 @@ screen main_menu():
             textbutton _("Продолжить") action ContinueGame() style "main_menu_cta_button"
             if ss_has_saves():
                 textbutton _("Сохранения") action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
-            textbutton _("Начать заново") action Confirm(_("Вы хотите начать игру заново? Весь несохранённый прогресс будет потерян."), yes=Start(), confirm_selected=True)
+            textbutton _("Начать заново") action ConfirmWithButtons(
+                _("Вы хотите начать игру заново? Весь несохранённый прогресс будет потерян."), 
+                yes=Start(),
+                yes_label=_("Начать игру"),
+                no_label=_("Отмена")
+            )
         else:
             textbutton _("Начать") action Start() style "main_menu_cta_button"
             if ss_has_saves():

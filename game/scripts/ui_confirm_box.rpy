@@ -37,6 +37,12 @@ style confirm_button:
     background "ui_images/button/confirm_button_idle.png"
     hover_background "ui_images/button/confirm_button_hover.png"
 
+style confirm_button_text is ui_text:
+    xalign 0.5
+    yalign 0.5
+    hover_color "#ffffff"
+    color "#000000"
+
 init python:
     class ConfirmWithButtons(Action, DictEquality):
         def __init__(self, prompt, yes, no=None, confirm_selected=False, yes_label=_("Да"), no_label=_("Нет")):
