@@ -1,5 +1,5 @@
 ﻿## Game itself
-define config.name = _("delivery_story")
+define config.name = _("Название Игры")
 define config.version = "0.1"
 define build.name = "DeliveryStory"
 

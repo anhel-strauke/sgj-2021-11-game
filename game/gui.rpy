@@ -27,8 +27,8 @@ define gui.hover_muted_color = u'#065a45'
 define config.gl_clear_color = u'#000000'
 
 ## Font options
-define gui.text_font = "BloggerSans.ttf"
-define gui.name_text_font = "BloggerSans.ttf"
+define gui.text_font = "fonts/BloggerSans/BloggerSans.ttf"
+define gui.name_text_font = "fonts/BloggerSans/BloggerSans.ttf"
 define gui.interface_text_font = "fonts/BloggerSans/BloggerSans.ttf"
 define gui.text_size = 33
 define gui.name_text_size = 45

@@ -9,11 +9,9 @@ screen main_menu():
             button action ContinueGame() style "main_menu_cta_button" foreground "ui_images/button/[prefix_]mm_continue.png"
             if ss_has_saves():
                 button foreground "ui_images/button/[prefix_]mm_saves.png" action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
-            button foreground "ui_images/button/[prefix_]mm_start_again.png" action ConfirmWithButtons(
+            button foreground "ui_images/button/[prefix_]mm_start_again.png" action Confirm(
                 _("Вы хотите начать игру заново? Весь несохранённый прогресс будет потерян."), 
-                yes=Start(),
-                yes_label=_("Начать игру"),
-                no_label=_("Отмена")
+                yes=Start()
             )
         else:
             button action Start() style "main_menu_cta_button" foreground "ui_images/button/[prefix_]mm_start.png"

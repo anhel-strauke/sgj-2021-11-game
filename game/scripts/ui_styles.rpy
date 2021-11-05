@@ -4,6 +4,14 @@ init:
     image white = "#ffffff"
 
 
+style bubble_text:
+    font gui.text_font
+    size 40
+    color "#000000"
+
+style bubble_name_text is bubble_text:
+    font gui.name_text_font
+
 style ui_text:
     font gui.interface_text_font
     size 40
