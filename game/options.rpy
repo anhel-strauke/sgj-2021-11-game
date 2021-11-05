@@ -1,7 +1,7 @@
 ﻿## Game itself
-define config.name = _("renpy_platform")
-define config.version = "1.0"
-define build.name = "renpy_platform"
+define config.name = _("delivery_story")
+define config.version = "0.1"
+define build.name = "DeliveryStory"
 
 define config.has_sound = False
 define config.has_music = True
@@ -57,7 +57,7 @@ define config.thumbnail_height = 75
 ## Этот параметр обычно не должен изменяться, а если и изменился, должен быть
 ## текстовой строчкой, а не выражением.
 
-define config.save_directory = "renpy_platform-1633105503"
+define config.save_directory = "delivery_story-1633105503"
 
 
 ## Иконка ######################################################################
@@ -99,6 +99,9 @@ init python:
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
 
+    build.classify('**/*.rpy', None) # Clean up game sources, leave bytecode only
+    build.classify('game/**.rpyc', 'archive')
+
     ## Чтобы архивировать файлы, классифицируйте их, например, как 'archive'.
 
     # build.classify('game/**.png', 'archive')
@@ -108,7 +111,7 @@ init python:
     ## Mac, чтобы они появлялись и в приложении, и в zip архиве.
 
     build.documentation('*.html')
-    build.documentation('*.txt')
+    # build.documentation('*.txt')
 
 
 ## Лицензионный ключ Google Play требуется для загрузки файлов расширений и
