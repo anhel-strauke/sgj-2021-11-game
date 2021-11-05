@@ -1,52 +1,39 @@
 screen main_menu():
     tag menu
     add "ui_images/main_menu_background.png"
-    text "Courier Story" style "main_menu_title" at:
-        xalign 0.5 yanchor 0.5 ypos 0.3
+    add "ui_images/game_logo.png" at:
+        pos (1124, 54)
     vbox:
         style_prefix "main_menu"
         if ss_has_continue():
-            textbutton _("Продолжить") action ContinueGame() style "main_menu_cta_button"
+            button action ContinueGame() style "main_menu_cta_button" foreground "ui_images/button/[prefix_]mm_continue.png"
             if ss_has_saves():
-                textbutton _("Сохранения") action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
-            textbutton _("Начать заново") action ConfirmWithButtons(
+                button foreground "ui_images/button/[prefix_]mm_saves.png" action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
+            button foreground "ui_images/button/[prefix_]mm_start_again.png" action ConfirmWithButtons(
                 _("Вы хотите начать игру заново? Весь несохранённый прогресс будет потерян."), 
                 yes=Start(),
                 yes_label=_("Начать игру"),
                 no_label=_("Отмена")
             )
         else:
-            textbutton _("Начать") action Start() style "main_menu_cta_button"
+            button action Start() style "main_menu_cta_button" foreground "ui_images/button/[prefix_]mm_start.png"
             if ss_has_saves():
-                textbutton _("Сохранения") action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
-        textbutton _("Настройки") action ShowMenu("settings", _transition=CropMove(0.3, "slideleft"))
-        textbutton _("Создатели") action ShowMenu("about", _transition=CropMove(0.3, "slideleft"))
+                button foreground "ui_images/button/[prefix_]mm_saves.png" action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
+        button foreground "ui_images/button/[prefix_]mm_settings.png" action ShowMenu("settings", _transition=CropMove(0.3, "slideleft"))
+        button foreground "ui_images/button/[prefix_]mm_about.png" action ShowMenu("about", _transition=CropMove(0.3, "slideleft"))
         if renpy.variant("pc"):
-            textbutton _("Выход") action Quit(confirm=False)
-
-style main_menu_title is ui_text:
-    size 120
+            button foreground "ui_images/button/[prefix_]mm_exit.png" action Quit(confirm=False)
 
 style main_menu_vbox:
-    spacing 13
-    first_spacing 26
-    xalign 0.5
-    yanchor 0.0
-    ypos 0.5
-    xsize 500
+    spacing 12
+    first_spacing 19
+    xpos 1237 ypos 348
+    xsize 496
 
 style main_menu_button:
-    xalign 0.5
-    background None
-    xfill True
-    hover_background "white"
+    xalign 1.0
+    xysize (472, 88)
 
-style main_menu_button_text is ui_text:
-    size 52
-    xalign 0.5
-    hover_color "#000000"
-
-style main_menu_cta_button is main_menu_button
-
-style main_menu_cta_button_text is main_menu_button_text:
-    size 80
+style main_menu_cta_button:
+    xysize (496, 168)
+    xalign 1.0
