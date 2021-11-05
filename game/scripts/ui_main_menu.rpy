@@ -24,8 +24,8 @@ screen main_menu():
         if renpy.variant("pc"):
             textbutton _("Выход") action Quit(confirm=False)
 
-style main_menu_title:
-    size 80
+style main_menu_title is ui_text:
+    size 120
 
 style main_menu_vbox:
     spacing 13
@@ -42,11 +42,11 @@ style main_menu_button:
     hover_background "white"
 
 style main_menu_button_text is ui_text:
-    size 32
+    size 52
     xalign 0.5
     hover_color "#000000"
 
 style main_menu_cta_button is main_menu_button
 
 style main_menu_cta_button_text is main_menu_button_text:
-    size 60
+    size 80

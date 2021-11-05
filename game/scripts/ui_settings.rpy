@@ -39,7 +39,7 @@ style settings_grid:
     xfill True
     ymaximum 900
 
-style settings_grid_text is ui_text
+style settings_text is ui_text
 
 style radio_button:
     xfill True

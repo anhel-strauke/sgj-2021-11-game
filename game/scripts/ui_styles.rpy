@@ -5,6 +5,7 @@ init:
 
 
 style ui_text:
+    font gui.interface_text_font
     size 40
     color "#ffffff"
 

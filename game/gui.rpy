@@ -22,14 +22,14 @@ define gui.selected_color = u'#ffffff'
 define gui.insensitive_color = u'#8888887f'
 
 define gui.muted_color = u'#00513d'
-define gui.hover_muted_color = u'#007a5b'
+define gui.hover_muted_color = u'#065a45'
 
 define config.gl_clear_color = u'#000000'
 
 ## Font options
-define gui.text_font = "DejaVuSans.ttf"
-define gui.name_text_font = "DejaVuSans.ttf"
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.text_font = "BloggerSans.ttf"
+define gui.name_text_font = "BloggerSans.ttf"
+define gui.interface_text_font = "fonts/BloggerSans/BloggerSans.ttf"
 define gui.text_size = 33
 define gui.name_text_size = 45
 define gui.interface_text_size = 33
