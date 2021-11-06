@@ -6,7 +6,7 @@ init:
 
 style bubble_text:
     font gui.text_font
-    size 40
+    size 48
     color "#000000"
     italic True
 
