@@ -3,9 +3,18 @@ init -1:
         "1057x364_bl": {
             "image": "ui_images/bubble/bubble_1057x364_bl.png",
             "anchor": (0.0, 1.0),
-            "text_pos": (107, 23),
+            "text_pos": (47, 23),
             "text_size": (972, 219),
+            "uppercase_who": True,
             "style_prefix": "bubble1057"
+        },
+        "left_big": {
+            "image": "ui_images/bubble/bubble_left_big.png",
+            "anchor": (0.0, 0.75),
+            "text_pos": (119, 39),
+            "text_size": (1005, 192),
+            "uppercase_who": True,
+            "style_prefix": "bubble_left_big"
         },
         "cat": {
             "image": "ui_images/bubble/cat_bubble.png",
@@ -13,13 +22,6 @@ init -1:
             "text_pos": (35, 27),
             "text_size": (382, 112),
             "style_prefix": "bubble_cat"
-        },
-        "pharmacist": {
-            "image": "ui_images/bubble/cat_bubble_right.png",
-            "anchor": (1.0,1.0),
-            "text_pos": (35, 27),
-            "text_size": (382, 112),
-            "style_prefix": "bubble_pharm"
         }
     }
 
@@ -41,6 +43,7 @@ init -1 python:
 
 screen say_bubble(who, what, bubble="1057x364_bl", position=(1920 / 2, 1080 / 2)):
     $ b = bubbles[bubble]
+    $ caps_who = unicode(who).upper() if b.get("uppercase_who", False) else who
     fixed:
         window id "window":
             style_prefix "foo"
@@ -54,34 +57,24 @@ screen say_bubble(who, what, bubble="1057x364_bl", position=(1920 / 2, 1080 / 2)
                     style b["style_prefix"]+"_vbox"
                     pos b["text_pos"]
                     if who:
-                        text who id "who"
+                        text caps_who id "who"
                     text what id "what"
 
-#Main Hero bubble
-style bubble1057_who is bubble_name_text:
-    size 45
-    xalign 0.1
-    yalign 0.5
-style bubble1057_what is bubble_text:
-    size 35
+style bubble1057_who is bubble_name_text
+style bubble1057_what is bubble_text
 style bubble1057_vbox:
     spacing 20
-#Cat bubble
+
+style bubble_left_big_who is bubble_name_text
+style bubble_left_big_what is bubble_text
+style bubble_left_big_vbox:
+    spacing 27
+
 style bubble_cat_who is bubble_name_text
 style bubble_cat_what is bubble_text:
-    size 50
+    size 54
     xalign 0.5
     yalign 0.5
 style bubble_cat_vbox:
-    xfill True
-    yfill True
-#pharmacist bubble
-style bubble_pharm_who is bubble_name_text:
-    size 45
-style bubble_pharm_what is bubble_text:
-    size 35
-    xalign 0.5
-    yalign 0.5
-style bubble_pharm_vbox:
     xfill True
     yfill True
