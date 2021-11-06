@@ -1,4 +1,11 @@
 init -1:
+    transform trans_flip_horizontal:
+        xzoom -1
+    transform trans_flip_vertical:
+        yzoom -1
+    transform trans_flip_both:
+        xzoom -1 yzoom -1
+
     define bubbles = {
         "1057x364_bl": {
             "image": "ui_images/bubble/bubble_1057x364_bl.png",
@@ -36,6 +43,34 @@ init -1:
             "text_pos": (25, 25),
             "text_size": (468, 136),
             "style_prefix": "bubble_right_tall"
+        },
+        "top_left_big": {
+            "image": "ui_images/bubble/bubble_top_left_big.png",
+            "anchor": (0.1, 0.0),
+            "text_pos": (39, 90),
+            "text_size": (1266, 191),
+            "style_prefix": "bubble_top_left"
+        },
+        "top_right_big": {
+            "image": At("ui_images/bubble/bubble_top_left_big.png", trans_flip_horizontal),
+            "anchor": (0.9, 0.0),
+            "text_pos": (47, 90),
+            "text_size": (1266, 191),
+            "style_prefix": "bubble_top_left"
+        },
+        "bottom_left_big": {
+            "image": At("ui_images/bubble/bubble_top_left_big.png", trans_flip_vertical),
+            "anchor": (0.1, 1.0),
+            "text_pos": (39, 29),
+            "text_size": (1266, 191),
+            "style_prefix": "bubble_top_left"
+        },
+        "bottom_right_big": {
+            "image": At("ui_images/bubble/bubble_top_left_big.png", trans_flip_both),
+            "anchor": (0.9, 1.0),
+            "text_pos": (47, 29),
+            "text_size": (1266, 191),
+            "style_prefix": "bubble_top_left"
         }
     }
 
@@ -102,7 +137,10 @@ style bubble_right_tall_what is bubble_text:
 style bubble_right_tall_vbox:
     spacing 16
 
-
+style bubble_top_left_who is bubble_name_text
+style bubble_top_left_what is bubble_text
+style bubble_top_left_vbox:
+    spacing 16
 
 style bubble_cat_who is bubble_name_text
 style bubble_cat_what is bubble_text:

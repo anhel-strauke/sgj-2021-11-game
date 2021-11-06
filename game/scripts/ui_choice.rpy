@@ -13,14 +13,17 @@ style choice_vbox:
     yalign 1.0
     yoffset -28
     spacing 5
-    xsize 991
+    xsize 1331
 
 style choice_button:
-    xysize (991, 110)
+    xysize (1331, 107)
     background "ui_images/button/[prefix_]choice.png"
-    padding (116, 12, 991-116-844, 110-77-12)
+    padding (19, 18, 1331-1292-19, 107-71-18)
 
-style choice_window is choice_button
+style choice_window:
+    xysize (1331, 107)
+    background "ui_images/button/idle_choice.png"
+    padding (19, 18, 1331-1292-19, 107-71-18)
 
 style choice_button_text is bubble_text:
     xalign 0.5

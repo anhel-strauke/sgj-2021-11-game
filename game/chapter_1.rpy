@@ -1,7 +1,9 @@
 label start:
 
+    $ location(_("Дом Меллори"))
+
     define h1 = CharacterAt(hero, (20, 307), "left_big")
-    define c1 = CharacterAt(cat, (1213, 795), "cat", name="")
+    define c1 = CharacterAt(cat, (1253, 795), "cat", name="")
 
     scene black
 
@@ -17,11 +19,9 @@ label start:
     show bg home:
         xalign 0.5 yalign 0.5 alpha 1.0 zoom 0.5
 
-    show cat temporary:
-        anchor (0.5, 1.0) zoom 0.6 xpos 1920-400 ypos 0.95
+    show cat:
+        anchor (0.5, 1.0) zoom 0.2 xpos 1920-400 ypos 0.95
     with moveinright
-
-    pause 1.0
 
     c1 "Мяу!"
 

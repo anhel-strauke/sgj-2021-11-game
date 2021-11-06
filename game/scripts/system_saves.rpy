@@ -41,6 +41,9 @@ init python:
             if autosave_indicator_screen is not None:
                 renpy.show_screen(autosave_indicator_screen)
     
+    def ss_game_end():
+        renpy.unlink_save(autosave_file_name)
+
     def _make_save_file_name(save_index):
         return (save_file_name_prefix + u"%d") % save_index
     
@@ -65,7 +68,7 @@ init python:
             renpy.copy_save(autosave_file_name, new_save_filename)
         else:
             renpy.take_screenshot()
-            print "Saving \"" + save_game_info + "\""
+            #print "Saving \"" + save_game_info + "\""
             renpy.save(new_save_filename, extra_info=save_game_info)
 
     def ss_continue_game():
@@ -96,6 +99,10 @@ init python:
                 return _("%s назад") % _format_minutes_ru(int(delta.seconds / 60))
         return datetime.strftime("%d.%m.%Y, %H:%M")
     
+
+    def location(name):
+        ss_set_info(name)
+        ss_savepoint()
 
     class ContinueGame(Action, DictEquality):
         def get_sensitive(self):
