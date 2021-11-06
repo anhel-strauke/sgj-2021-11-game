@@ -55,9 +55,9 @@ init -1 python:
                 **kwargs
             )
 
-screen say_bubble(who, what, bubble="1057x364_bl", position=(1920 / 2, 1080 / 2)):
+screen say_bubble(who, what, bubble="left_big", position=(1920 / 2, 1080 / 2)):
     $ b = bubbles[bubble]
-    $ caps_who = unicode(who).upper() if b.get("uppercase_who", False) else who
+    $ caps_who = unicode(who).upper() if b.get("uppercase_who", True) else who
     fixed:
         window id "window":
             style_prefix "foo"
