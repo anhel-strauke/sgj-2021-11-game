@@ -1,7 +1,8 @@
 label chapter_2:
 
-    define h1 = CharacterAt(hero, (86, 381), "1057x364_bl")
-    define ph1 = CharacterAt(pharmacist, (0.5, 0.5), "pharmacist")
+    define h1 = CharacterAt(hero, (0.22 , 0.25), "1057x364_bl")
+    define ph1 = CharacterAt(pharmacist, (0.56, 0.38), "pharmacist")
+    image gg flip = im.Flip("gg_ride.png", horizontal = True) #отразить картинкупо горизонтали
 
     scene black
 
@@ -10,9 +11,25 @@ label chapter_2:
     #тут крупный план передней части пароката с крутящимся колесом
 
     show bg pharmacy:
+        anchor(0.5, 0.5)
+        pos(895, 540)
         alpha 0
-        linear 3 alpha 1
+        linear 1 alpha 1 zoom 2.0
 
+    pause 1.0
+
+    show gg_ride:
+        anchor (0.5, 1.0) zoom 0.2 xpos 1200-800 ypos 0.95
+    with moveinleft
+
+    show pharm:
+        anchor(0.5, 0.5)
+        pos(1480, 670)
+        alpha 0
+        linear .1 zoom 0.18
+        linear 1.7 alpha 1
+
+    pause 1.3
     #ГГ подъезжает на парокате ко входу аптеки
     #анимация клубов пара из пароката
 
@@ -28,7 +45,7 @@ label chapter_2:
         "Такова моя планида":
             h1 "Конечно. Моему котику нужно кушать, а мне оплачивать учебу и тоже питаться."
 
-    pause 2.0
+    pause 1.0
 
     ph1 "У меня попросили очень странный заказ, просили долго и упорно."
     ph1 " Один молодой человек."
@@ -43,6 +60,7 @@ label chapter_2:
 
     #Посылки помещаются на парокат.
     #Парокат уезжает с анимацией пара из выхлопной трубы
+
     pause 2.0
 
     return

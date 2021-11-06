@@ -16,7 +16,7 @@ init -1:
         },
         "pharmacist": {
             "image": "ui_images/bubble/cat_bubble_right.png",
-            "anchor": (1.0, 1.0),
+            "anchor": (1.0,1.0),
             "text_pos": (35, 27),
             "text_size": (382, 112),
             "style_prefix": "bubble_pharm"
@@ -69,7 +69,7 @@ style bubble1057_vbox:
 #Cat bubble
 style bubble_cat_who is bubble_name_text
 style bubble_cat_what is bubble_text:
-    size 35
+    size 50
     xalign 0.5
     yalign 0.5
 style bubble_cat_vbox:
