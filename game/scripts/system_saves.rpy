@@ -68,7 +68,6 @@ init python:
             renpy.copy_save(autosave_file_name, new_save_filename)
         else:
             renpy.take_screenshot()
-            #print "Saving \"" + save_game_info + "\""
             renpy.save(new_save_filename, extra_info=save_game_info)
 
     def ss_continue_game():

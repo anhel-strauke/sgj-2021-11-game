@@ -52,7 +52,6 @@ screen murphymeter():
             vbox style "money_vbox":
                 pos (927, 85)
                 text str(money_current) style "money_text"
-            $ print "Murph: Interaction, Myo =", Myo_current, "->", Myo_value
             if Myo_value != Myo_current:
                 timer (1.0/30.0) action update_murphymeter repeat True
             if money_value != money_current:

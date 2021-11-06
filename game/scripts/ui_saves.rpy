@@ -14,7 +14,6 @@ screen save_slots_list(for_save=False):
                     text " " style "slot_date_text"
     $ focus_value = not for_save
     for (slot_index, slot_description, slot_thumbnail, slot_utime) in save_slots:
-        $ print "Displaying \"" + slot_description + "\""
         button action SaveSlotAction(for_save, slot_index) style "slot_button":
             default_focus focus_value
             $ focus_value = False
