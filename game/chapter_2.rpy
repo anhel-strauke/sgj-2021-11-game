@@ -19,10 +19,13 @@ label chapter_2:
         linear 1 alpha 1
         ease 1 zoom 2.0
     pause 2.0
+
     show bg pharmacy:
         anchor(0.5, 0.5)
         pos(895, 540)
         zoom 2.0
+        alpha 1.0
+    with None
 
     show gg_ride:
         anchor (0.5, 1.0) zoom 0.2 xpos 1200-800 ypos 0.95

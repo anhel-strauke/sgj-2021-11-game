@@ -1,4 +1,5 @@
 screen settings():
+    zorder 801
     tag menu
     add "ui_images/main_menu_background.png"
     text _("Настройки") style "secondary_screen_title"

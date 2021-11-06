@@ -99,6 +99,12 @@ init python:
                 return _("%s назад") % _format_minutes_ru(int(delta.seconds / 60))
         return datetime.strftime("%d.%m.%Y, %H:%M")
     
+    def ss_save_pause():
+        renpy.save(pause_save_file_name)
+    
+    def ss_load_pause():
+        if renpy.can_load(pause_save_file_name):
+            renpy.load(pause_save_file_name)
 
     def location(name):
         ss_set_info(name)

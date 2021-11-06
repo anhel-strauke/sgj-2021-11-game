@@ -7,13 +7,12 @@ init -1:
         xzoom -1 yzoom -1
 
     define bubbles = {
-        "1057x364_bl": {
-            "image": "ui_images/bubble/bubble_1057x364_bl.png",
-            "anchor": (0.0, 1.0),
-            "text_pos": (157, 23),
-            "text_size": (972, 219),
-            "uppercase_who": True,
-            "style_prefix": "bubble1057"
+        "": {
+            "image": "ui_images/bubble/bubble_big.png",
+            "anchor": (0.5, 1.0),
+            "text_pos": (46, 42),
+            "text_size": (1267, 188),
+            "style_prefix": "default_bubble"
         },
         "left_big": {
             "image": "ui_images/bubble/bubble_left_big.png",
@@ -90,7 +89,7 @@ init -1 python:
                 **kwargs
             )
 
-screen say_bubble(who, what, bubble="left_big", position=(1920 / 2, 1080 / 2)):
+screen say_bubble(who, what, bubble="", position=(1920 / 2, 1080 - 28)):
     $ b = bubbles[bubble]
     $ caps_who = unicode(who).upper() if b.get("uppercase_who", True) else who
     fixed:
@@ -109,12 +108,10 @@ screen say_bubble(who, what, bubble="left_big", position=(1920 / 2, 1080 / 2)):
                         text caps_who id "who"
                     text what id "what"
 
-style bubble1057_who is bubble_name_text:
-    size +40
-style bubble1057_what is bubble_text:
-    size 35
-style bubble1057_vbox:
-    spacing 40
+style default_bubble_who is bubble_name_text
+style default_bubble_what is bubble_text
+style default_bubble_vbox:
+    spacing 16
 
 style bubble_left_big_who is bubble_name_text:
     size +40

@@ -44,6 +44,7 @@ define config.thumbnail_width = 133
 define config.thumbnail_height = 75
 
 define config.rollback_enabled = True
+default quick_menu = True
 
 ## Директория сохранений #######################################################
 ##

@@ -1,6 +1,6 @@
 screen confirm(message, yes_action, no_action):
     modal True
-    zorder 200
+    zorder 900
     style_prefix "confirm"
     add "ui_images/overlay/confirm.png"
     frame:
