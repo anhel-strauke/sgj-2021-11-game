@@ -6,7 +6,7 @@ label splashscreen:
     pause 0.5
     
     show jam_splash:
-        zoom 0.5 xalign 0.5 yalign 0.5
+        zoom 0.4 xalign 0.5 yalign 0.5
     with dissolve
     pause 2.0
     hide jam_splash with dissolve
