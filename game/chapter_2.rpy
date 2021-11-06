@@ -1,7 +1,7 @@
 label chapter_2:
 
     define h1 = CharacterAt(hero, (0.22 , 0.25), "1057x364_bl")
-    define ph1 = CharacterAt(pharmacist, (0.56, 0.38), "pharmacist")
+    define ph1 = CharacterAt(pharmacist, (0.56, 0.38), "cat")
     image gg flip = im.Flip("gg_ride.png", horizontal = True) #отразить картинкупо горизонтали
 
     scene black
