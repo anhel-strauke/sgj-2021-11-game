@@ -18,9 +18,9 @@ init -1:
         },
         "cat": {
             "image": "ui_images/bubble/cat_bubble.png",
-            "anchor": (1.0, 1.0),
-            "text_pos": (35, 27),
-            "text_size": (382, 112),
+            "anchor": (1.0, 120),
+            "text_pos": (25, 25),
+            "text_size": (438, 136),
             "style_prefix": "bubble_cat"
         }
     }
@@ -68,7 +68,7 @@ style bubble1057_vbox:
 style bubble_left_big_who is bubble_name_text
 style bubble_left_big_what is bubble_text
 style bubble_left_big_vbox:
-    spacing 27
+    spacing 16
 
 style bubble_cat_who is bubble_name_text
 style bubble_cat_what is bubble_text:

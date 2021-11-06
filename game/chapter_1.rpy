@@ -1,7 +1,7 @@
 label start:
 
-    define h1 = CharacterAt(hero, (86, 381), "1057x364_bl")
-    define c1 = CharacterAt(cat, (1260, 710), "cat", name="")
+    define h1 = CharacterAt(hero, (20, 307), "left_big")
+    define c1 = CharacterAt(cat, (1213, 795), "cat", name="")
 
     scene black
 
