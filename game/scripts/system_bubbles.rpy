@@ -16,6 +16,13 @@ init -1:
             "uppercase_who": True,
             "style_prefix": "bubble_left_big"
         },
+        "right_small": {
+            "image": "ui_images/bubble/bubble_right_small.png",
+            "anchor": (1.0, 120),
+            "text_pos": (25, 25),
+            "text_size": (438, 136),
+            "style_prefix": "bubble_right_small"
+        },
         "cat": {
             "image": "ui_images/bubble/cat_bubble.png",
             "anchor": (1.0, 120),
@@ -69,6 +76,13 @@ style bubble_left_big_who is bubble_name_text
 style bubble_left_big_what is bubble_text
 style bubble_left_big_vbox:
     spacing 16
+
+style bubble_right_small_who is bubble_name_text
+style bubble_right_small_what is bubble_text
+style bubble_right_small_vbox:
+    spacing 16
+
+
 
 style bubble_cat_who is bubble_name_text
 style bubble_cat_what is bubble_text:
