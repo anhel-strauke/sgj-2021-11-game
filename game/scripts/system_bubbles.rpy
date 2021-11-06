@@ -3,7 +3,7 @@ init -1:
         "1057x364_bl": {
             "image": "ui_images/bubble/bubble_1057x364_bl.png",
             "anchor": (0.0, 1.0),
-            "text_pos": (47, 23),
+            "text_pos": (157, 23),
             "text_size": (972, 219),
             "uppercase_who": True,
             "style_prefix": "bubble1057"
@@ -17,7 +17,7 @@ init -1:
             "style_prefix": "bubble_left_big"
         },
         "right_small": {
-            "image": "ui_images/bubble/bubble_right_small.png",
+            "image": "ui_images/bubble/small_bubble_right.png",
             "anchor": (1.0, 120),
             "text_pos": (25, 25),
             "text_size": (438, 136),
@@ -29,6 +29,13 @@ init -1:
             "text_pos": (25, 25),
             "text_size": (438, 136),
             "style_prefix": "bubble_cat"
+        },
+        "right_tall": {
+            "image": "ui_images/bubble/bubble_right.png",
+            "anchor": (1.0, 120),
+            "text_pos": (25, 25),
+            "text_size": (468, 136),
+            "style_prefix": "bubble_right_tall"
         }
     }
 
@@ -67,19 +74,32 @@ screen say_bubble(who, what, bubble="1057x364_bl", position=(1920 / 2, 1080 / 2)
                         text caps_who id "who"
                     text what id "what"
 
-style bubble1057_who is bubble_name_text
-style bubble1057_what is bubble_text
+style bubble1057_who is bubble_name_text:
+    size +40
+style bubble1057_what is bubble_text:
+    size 35
 style bubble1057_vbox:
-    spacing 20
+    spacing 40
 
-style bubble_left_big_who is bubble_name_text
+style bubble_left_big_who is bubble_name_text:
+    size +40
 style bubble_left_big_what is bubble_text
 style bubble_left_big_vbox:
     spacing 16
 
-style bubble_right_small_who is bubble_name_text
-style bubble_right_small_what is bubble_text
+style bubble_right_small_who is bubble_name_text:
+    size +40
+style bubble_right_small_what is bubble_text:
+    size 35
+    xalign 0.1
 style bubble_right_small_vbox:
+    spacing 16
+
+style bubble_right_tall_who is bubble_name_text:
+    size +40
+style bubble_right_tall_what is bubble_text:
+    size 35
+style bubble_right_tall_vbox:
     spacing 16
 
 

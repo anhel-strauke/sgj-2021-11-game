@@ -1,7 +1,7 @@
 label chapter_2:
 
     define h1 = CharacterAt(hero, (0.22 , 0.25), "1057x364_bl")
-    define ph1 = CharacterAt(pharmacist, (0.56, 0.38), "cat")
+    define ph1 = CharacterAt(pharmacist, (0.56, 0.38), "right_tall")
     image gg flip = im.Flip("gg_ride.png", horizontal = True) #отразить картинкупо горизонтали
 
     scene black
@@ -54,7 +54,7 @@ label chapter_2:
 
     #камера фокус на пузырьке. Надпись - "Гарпия"
 
-    pause 2.0
+    pause 0.6
 
     h1 "Вы всегда знали что делать, надеюсь в этот раз вы не ошибаетесь."
 
