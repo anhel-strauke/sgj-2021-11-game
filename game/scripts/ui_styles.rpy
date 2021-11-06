@@ -8,9 +8,13 @@ style bubble_text:
     font gui.text_font
     size 40
     color "#000000"
+    italic True
 
 style bubble_name_text is bubble_text:
     font gui.name_text_font
+    size 54
+    bold True
+    italic False
 
 style ui_text:
     font gui.interface_text_font
