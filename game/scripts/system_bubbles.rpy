@@ -3,7 +3,7 @@ init -1:
         "1057x364_bl": {
             "image": "ui_images/bubble/bubble_1057x364_bl.png",
             "anchor": (0.0, 1.0),
-            "text_pos": (47, 23),
+            "text_pos": (107, 23),
             "text_size": (972, 219),
             "style_prefix": "bubble1057"
         },
@@ -13,6 +13,13 @@ init -1:
             "text_pos": (35, 27),
             "text_size": (382, 112),
             "style_prefix": "bubble_cat"
+        },
+        "pharmacist": {
+            "image": "ui_images/bubble/cat_bubble_right.png",
+            "anchor": (1.0, 1.0),
+            "text_pos": (35, 27),
+            "text_size": (382, 112),
+            "style_prefix": "bubble_pharm"
         }
     }
 
@@ -50,15 +57,31 @@ screen say_bubble(who, what, bubble="1057x364_bl", position=(1920 / 2, 1080 / 2)
                         text who id "who"
                     text what id "what"
 
-style bubble1057_who is bubble_name_text
-style bubble1057_what is bubble_text
+#Main Hero bubble
+style bubble1057_who is bubble_name_text:
+    size 45
+    xalign 0.1
+    yalign 0.5
+style bubble1057_what is bubble_text:
+    size 35
 style bubble1057_vbox:
     spacing 20
+#Cat bubble
 style bubble_cat_who is bubble_name_text
 style bubble_cat_what is bubble_text:
-    size 54
+    size 35
     xalign 0.5
     yalign 0.5
 style bubble_cat_vbox:
+    xfill True
+    yfill True
+#pharmacist bubble
+style bubble_pharm_who is bubble_name_text:
+    size 45
+style bubble_pharm_what is bubble_text:
+    size 35
+    xalign 0.5
+    yalign 0.5
+style bubble_pharm_vbox:
     xfill True
     yfill True
