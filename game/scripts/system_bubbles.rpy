@@ -70,6 +70,13 @@ init -1:
             "text_pos": (47, 29),
             "text_size": (1266, 191),
             "style_prefix": "bubble_top_left"
+        },
+        "top_left_th": {
+            "image": "ui_images/bubble/bubble_thoughts_top_left.png",
+            "anchor": (0.1, 0.0),
+            "text_pos": (61, 107),
+            "text_size": (1095, 195),
+            "style_prefix": "bubble_th"
         }
     }
 
@@ -147,3 +154,8 @@ style bubble_cat_what is bubble_text:
 style bubble_cat_vbox:
     xfill True
     yfill True
+
+style bubble_th_who is bubble_name_text
+style bubble_th_what is bubble_text
+style bubble_th_vbox:
+    spacing 16
