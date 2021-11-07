@@ -45,7 +45,7 @@ screen murphymeter():
                 pos (587, 0)
             bar value int(100.0 * Myo_current) range 300 style "murph_bar":
                 pos (587 + 128, 19)
-            if Myo_current == 3:
+            if Myo_current >= 3:
                 add "ui_images/murphymeter/m_bar_red.png" at trans_murph_red_bar
             add "ui_images/murphymeter/m_foreground.png" at:
                 pos (587, 0)

@@ -19,6 +19,8 @@ label start:
     show bg home:
         xalign 0.5 yalign 0.5 alpha 1.0 zoom 0.5
 
+    $ location(_("Дом Меллори"))
+
     show cat:
         anchor (0.5, 1.0) zoom 0.2 xpos 1920-400 ypos 0.95
     with moveinright
@@ -55,4 +57,5 @@ label start:
 
     h1 "Котик, я обязательно принесу поесть вечером, только заработаю…"
 
-    jump chapter_2
+    $ map_info = ("1-2", "chapter_2")
+    jump map

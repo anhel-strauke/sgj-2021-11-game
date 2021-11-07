@@ -4,6 +4,6 @@
 #
 # +/- type path
 - image game/ui_images/**
-+ image game/**
+- image game/**
 + music game/audio/**
 + voice game/voice/**

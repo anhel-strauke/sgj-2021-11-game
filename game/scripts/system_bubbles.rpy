@@ -57,6 +57,13 @@ init -1:
             "text_size": (1266, 191),
             "style_prefix": "bubble_top_left"
         },
+        "top_right_big_real": {
+            "image": "ui_images/bubble/bubble_top_right_big.png",
+            "anchor": (0.9, 0.0),
+            "text_pos": (39, 90),
+            "text_size": (1266, 191),
+            "style_prefix": "bubble_top_left"
+        },
         "top_right_big": {
             "image": At("ui_images/bubble/bubble_top_right_big.png",trans_flip_vertical),
             "anchor": (0.9, 0.0),
@@ -88,7 +95,9 @@ init -1:
     }
 
 init -1 python:
-    def CharacterAt(kind, position, bubble, **kwargs):
+    def CharacterAt(kind, position=None, bubble="", **kwargs):
+        if position is None:
+            position = (1920 / 2, 1080 - 88)
         b = bubbles[bubble]
         if "style_prefix" in b:
             if "who_style" not in kwargs:

@@ -1,7 +1,7 @@
 ﻿## Game itself
-define config.name = _("Название Игры")
+define config.name = _("Курьерская История")
 define config.version = "0.1"
-define build.name = "DeliveryStory"
+define build.name = "CourierStory"
 
 define config.has_sound = True
 define config.has_music = True
@@ -19,13 +19,13 @@ define config.exit_transition = dissolve
 
 ## Main menu transitions
 
-define config.intra_transition = CropMove(0.3, "slideawayright")
-define config.after_load_transition = None
+define config.intra_transition = Dissolve(0.3)
+define config.after_load_transition = Dissolve(0.3)
 define config.end_game_transition = None
 
 ## Dialog window behavior
 
-define config.window = "auto"
+define config.window = "hide"
 define config.window_show_transition = Dissolve(.2)
 define config.window_hide_transition = Dissolve(.2)
 
