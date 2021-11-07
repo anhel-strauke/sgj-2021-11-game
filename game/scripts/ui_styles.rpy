@@ -27,12 +27,11 @@ style secondary_screen_title is ui_text:
     yalign 0.2
 
 style back_button:
-    background None
-    hover_background "white"
-    xsize 1920/3
+    xysize (472, 88)
+    background "ui_images/button/[prefix_]back.png"
     xalign 0.5
     yalign 1.0
-    yoffset -32
+    yoffset -73
 
 style back_button_text is ui_text:
     hover_color "#000000"

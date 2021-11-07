@@ -3,7 +3,7 @@ define config.name = _("Название Игры")
 define config.version = "0.1"
 define build.name = "DeliveryStory"
 
-define config.has_sound = False
+define config.has_sound = True
 define config.has_music = True
 define config.has_voice = False
 # define config.sample_sound = "sample-sound.ogg"
