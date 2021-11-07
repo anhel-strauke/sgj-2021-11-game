@@ -29,6 +29,13 @@ init -1:
             "text_size": (438, 136),
             "style_prefix": "bubble_right_small"
         },
+        "left_tall": {
+            "image": "ui_images/bubble/bubble_left.png",
+            "anchor": (1.0, 120),
+            "text_pos": (90, 25),
+            "text_size": (438, 136),
+            "style_prefix": "bubble_left_tall"
+        },
         "cat": {
             "image": "ui_images/bubble/cat_bubble.png",
             "anchor": (1.0, 120),
@@ -132,6 +139,14 @@ style bubble_right_small_what is bubble_text:
     size 35
     xalign 0.1
 style bubble_right_small_vbox:
+    spacing 16
+
+style bubble_left_tall_who is bubble_name_text:
+    size +40
+style bubble_left_tall_what is bubble_text:
+    size 35
+    xalign 0.1
+style bubble_left_tall_vbox:
     spacing 16
 
 style bubble_right_tall_who is bubble_name_text:
