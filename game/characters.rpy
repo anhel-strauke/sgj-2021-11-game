@@ -8,3 +8,4 @@ init -1:
     define lady_mask = Character("Masked Lady")
     define passer = Character("Passer")
     define iso = Character("iso")
+    define darklady = Character("Мисс Дарк")
