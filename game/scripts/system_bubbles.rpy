@@ -58,11 +58,11 @@ init -1:
             "style_prefix": "bubble_top_left"
         },
         "top_right_big": {
-            "image": At("ui_images/bubble/bubble_top_left_big.png", trans_flip_horizontal),
+            "image": At("ui_images/bubble/bubble_top_right_big.png",trans_flip_vertical),
             "anchor": (0.9, 0.0),
-            "text_pos": (47, 90),
+            "text_pos": (47, 50),
             "text_size": (1266, 191),
-            "style_prefix": "bubble_top_left"
+            "style_prefix": "bubble_top_right"
         },
         "bottom_left_big": {
             "image": At("ui_images/bubble/bubble_top_left_big.png", trans_flip_vertical),
@@ -131,6 +131,12 @@ style bubble_left_big_who is bubble_name_text:
     size +40
 style bubble_left_big_what is bubble_text
 style bubble_left_big_vbox:
+    spacing 16
+
+style bubble_top_right_who is bubble_name_text:
+    size +40
+style bubble_top_right_what is bubble_text
+style bubble_top_right_vbox:
     spacing 16
 
 style bubble_right_small_who is bubble_name_text:

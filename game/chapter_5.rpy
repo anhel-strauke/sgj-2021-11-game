@@ -81,5 +81,4 @@ label chapter_5:
 
     pause
 
-    return
     jump chapter_6
