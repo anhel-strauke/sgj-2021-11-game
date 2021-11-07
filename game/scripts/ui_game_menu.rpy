@@ -11,7 +11,7 @@ screen _game_menu(background):
             vbox:
                 button action Return():
                     background "ui_images/button/[prefix_]gm_continue.png"
-                button action NullAction():
+                button action ShowMenu("save"):
                     background "ui_images/button/[prefix_]gm_save.png"
                 button action ShowMenu("settings"):
                     background "ui_images/button/[prefix_]gm_settings.png"
@@ -45,6 +45,7 @@ label game_menu:
         if not pause_screenshot:
             pause_screenshot = im.Data(renpy.screenshot_to_bytes((1920/2, 1080/2)), "screenshot.png")
         ss_save_pause()
+        renpy.take_screenshot()
         renpy.call_screen("_game_menu", pause_screenshot)
         del pause_screenshot
         pause_screenshot = None

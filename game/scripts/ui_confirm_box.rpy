@@ -40,6 +40,7 @@ style confirm_prompt:
 style confirm_prompt_text is ui_text:
     color "#fcd28e"
     align (0.5, 0.5)
+    text_align 0.5
 
 style confirm_button:
     xsize 219

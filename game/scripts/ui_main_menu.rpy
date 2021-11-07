@@ -25,7 +25,7 @@ screen main_menu():
 style main_menu_vbox:
     spacing 12
     first_spacing 19
-    xpos 1237 ypos 348
+    xpos 1237 ypos 378
     xsize 496
 
 style main_menu_button:

@@ -40,8 +40,8 @@ default preferences.afm_time = 15
 define config.has_autosave = False
 define config.autosave_slots = 0
 
-define config.thumbnail_width = 133
-define config.thumbnail_height = 75
+define config.thumbnail_width = 279
+define config.thumbnail_height = 157
 
 define config.rollback_enabled = True
 default quick_menu = True

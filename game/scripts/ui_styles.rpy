@@ -38,9 +38,7 @@ style back_button_text is ui_text:
     xalign 0.5
     yalign 0.5
 
-define gui.vscrollbar_borders = Borders(6, 6, 6, 6)
-
 style vscrollbar:
-    xsize 10
-    base_bar Frame("ui_images/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=False)
-    thumb Frame("ui_images/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=False)
+    xsize 20
+    base_bar Frame("ui_images/scrollbar/vertical_idle_bar2.png", tile=False)
+    thumb Frame("ui_images/scrollbar/vertical_idle_bar1.png", 4, 8, 4, 6, tile=False)
