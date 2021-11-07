@@ -119,4 +119,3 @@ label chapter_6:
     pause
 
     return
-    jump chapter_7
