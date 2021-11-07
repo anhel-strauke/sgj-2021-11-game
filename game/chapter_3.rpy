@@ -25,7 +25,7 @@ label chapter_3:
 
     hide gg_ride
 
-    show bg door close
+    show bg door2 close
     #Звук стука в дверь
 
     pause
@@ -36,9 +36,9 @@ label chapter_3:
 
     h3_idea "Ну вот, теперь придется возвращаться в лавку с пустыми руками"
 
-    hide bg door close
+    hide bg door2 close
 
-    show bg door open:
+    show bg door2 open:
         alpha 0
         zoom 0.5
         linear 1 alpha 1
