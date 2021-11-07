@@ -104,28 +104,41 @@ label chapter_3:
 
     menu:
         "Выхватить флакон и убежать":
+            hide suicide
+            show gg_def:
+                anchor (0.8, 0.6) zoom 0.4 xpos 1800-800 ypos 0.99
             h3 "Простите меня, но я не смогу с этим жить!"
             pause 1.0
+            hide gg_def
             h3_idea "Госпоже это точно не понравится… Но как она могла поручить мне такое?"
             pause 1.0
             $ Myo_value += 2
             pause 1.0
             jump chapter_4
         "Попытаться отговорить":
+            hide suicide
+            show gg_def:
+                anchor (0.8, 0.6) zoom 0.4 xpos 1800-800 ypos 0.99
             h3 "Вы ошибаетесь! "
             h3 "Я всего лишь ученица аптекаря, но знаю что существует великое множество лекарств"
             h3 " Что-то из них может вам помочь!"
             pause 1.0
+            hide gg_def
+            show suicide:
+                anchor (0.5, 0.6) zoom 0.4 xpos 1800-800 ypos 0.99
+
             su3 "Так наивно.. Учитель еще многого не рассказал вам"
             pause 1.0
             $ Myo_value += 1
             $ money_value += 5
+            pause 1.0
+            jump chapter_4
         "Забрать деньги и уйти":
             su3 "Спасибо за вашу работу. Еще раз, моя искренняя благодарность госпоже.."
             $ money_value +=10
             hide bg door_open
             show bg door close:
                 zoom 0.5
+            pause 1.0
+            jump chapter_4
     pause
-
-    return
