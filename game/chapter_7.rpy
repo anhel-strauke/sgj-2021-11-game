@@ -12,7 +12,7 @@ label chapter_7:
 
     scene black
 
-    show bg industrial:
+    show bg door lady:
         zoom 0.5
         alpha 0
         linear 2 alpha 1
@@ -94,7 +94,6 @@ label chapter_7s2:
     h7 "Я благодарю вас. Надеюсь, я не сильно опоздаю к следующей доставке"
 
     h7_idea "Почему все не может быть идеально?"
-    $ money_value -= 10
     $ Myo_value = 0
 
     pause 3.0

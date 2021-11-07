@@ -3,7 +3,7 @@ label chapter_5:
 
     define h5 = CharacterAt(hero, (940 , 340), "left_tall")
     define h5_idea = CharacterAt(hero, (540, 90), "top_left_th")
-    define iso5 = CharacterAt(iso, (0.4, 0.3), "right_tall")
+    define iso5 = CharacterAt(iso, (0.4, 0.3), "right_tall", name = "Неизвестный")
 
     scene black
 
