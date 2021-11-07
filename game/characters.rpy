@@ -9,3 +9,5 @@ init -1:
     define passer = Character("Passer")
     define iso = Character("iso")
     define darklady = Character("Мисс Дарк")
+    define vivi = Character("Виви")
+    define nelly = Character("Нелли")
