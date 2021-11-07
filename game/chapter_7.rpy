@@ -2,7 +2,7 @@ label chapter_7:
     $ location("ritual")
 
     define h7 = CharacterAt(hero, (0.5 , 0.5), "left_tall")
-    define d7 = CharacterAt(darklady, (0.6, 0.4), "right_tall")
+    define d7 = CharacterAt(darklady, (0.6, 0.4), "right_tall", name = "мисс Д’Арк")
 
     scene black
 
@@ -29,7 +29,7 @@ label chapter_7:
 
     h7 "Здравствуйте мисс"
 
-    d7 "Называй меня Mrs Dark"
+    d7 "Называй меня Д’Арк"
 
     pause 1.0
 
@@ -38,7 +38,7 @@ label chapter_7:
     d7 "Как вас зовут, маленькая леди?"
 
     h7 "Эмм.."
-    h7 "Мэллори, мисс Дарк. Меня зовут Мэллори"
+    h7 "Мэллори, мисс Д’Арк. Меня зовут Мэллори"
 
     d7 "Мэллори.."
     d7 "Красиво звучит."
