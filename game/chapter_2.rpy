@@ -3,50 +3,40 @@ label chapter_2:
 
     define h2 = CharacterAt(hero, (440 , 240), "bottom_left_big")
     define ph2 = CharacterAt(pharmacist, (1235, 240), "bottom_right_big")
-    image gg flip = im.Flip("gg_ride.png", horizontal = True) #отразить картинкупо горизонтали
+    #image gg flip = im.Flip("gg_ride.png", horizontal = True) #отразить картинкупо горизонтали
 
     scene black
-
-    pause 1.0
+    with dissolve
 
     #тут крупный план передней части пароката с крутящимся колесом
 
-    show bg pharmacy:
-        anchor(0.5, 0.5)
-        pos(895, 540)
+    show bg_pharmacy:
+        anchor (0.5, 0.5)
+        pos (0, 1080)
+        alpha 0.0
         zoom 1.0
-        alpha 0
-        linear 1 alpha 1
-        ease 1 zoom 2.0
-    pause 2.0
-
-    show bg pharmacy:
-        anchor(0.5, 0.5)
-        pos(895, 540)
-        zoom 2.0
+        block:
+            parallel:
+                linear 0.5 alpha 1.0
+            parallel:
+                ease 3.0 xpos 1920 ypos 0
+        ease 1.0 zoom 0.5 xpos 960 ypos 540
+    pause 4.0
+    show bg_pharmacy:
+        anchor (0.5, 0.5)
+        pos (960, 540)
+        zoom 0.5
         alpha 1.0
     with None
 
     show gg_ride:
-        anchor (0.5, 1.0) zoom 0.2 xpos 1200-800 ypos 0.95
+        anchor (0.5, 0.55) zoom 0.3 xpos 0.25 ypos 1.0
     with moveinleft
 
     show pharm:
-        anchor(0.5, 0.5)
-        pos(1480, 670)
-        alpha 0
-        zoom 0
-        parallel:
-            linear .1 zoom 0.18
-        parallel:
-            linear 1.7 alpha 1
+        anchor (0.5, 0.55) zoom 0.3 xpos 0.75 ypos 1.0
+    with moveinright
 
-    pause 1.3
-
-    show pharm:
-        anchor(0.5, 0.5)
-        pos(1480, 670)
-        zoom 0.18 alpha 1.0
     #ГГ подъезжает на парокате ко входу аптеки
     #анимация клубов пара из пароката
 
