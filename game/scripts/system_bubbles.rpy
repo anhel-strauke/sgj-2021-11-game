@@ -29,6 +29,13 @@ init -1:
             "text_size": (438, 136),
             "style_prefix": "bubble_right_small"
         },
+        "left_tall": {
+            "image": "ui_images/bubble/bubble_left.png",
+            "anchor": (1.0, 120),
+            "text_pos": (90, 25),
+            "text_size": (438, 136),
+            "style_prefix": "bubble_left_tall"
+        },
         "cat": {
             "image": "ui_images/bubble/cat_bubble.png",
             "anchor": (1.0, 120),
@@ -51,11 +58,11 @@ init -1:
             "style_prefix": "bubble_top_left"
         },
         "top_right_big": {
-            "image": At("ui_images/bubble/bubble_top_left_big.png", trans_flip_horizontal),
+            "image": At("ui_images/bubble/bubble_top_right_big.png",trans_flip_vertical),
             "anchor": (0.9, 0.0),
-            "text_pos": (47, 90),
+            "text_pos": (47, 50),
             "text_size": (1266, 191),
-            "style_prefix": "bubble_top_left"
+            "style_prefix": "bubble_top_right"
         },
         "bottom_left_big": {
             "image": At("ui_images/bubble/bubble_top_left_big.png", trans_flip_vertical),
@@ -74,7 +81,7 @@ init -1:
         "top_left_th": {
             "image": "ui_images/bubble/bubble_thoughts_top_left.png",
             "anchor": (0.1, 0.0),
-            "text_pos": (61, 107),
+            "text_pos": (45, 25),
             "text_size": (1095, 195),
             "style_prefix": "bubble_th"
         }
@@ -126,12 +133,26 @@ style bubble_left_big_what is bubble_text
 style bubble_left_big_vbox:
     spacing 16
 
+style bubble_top_right_who is bubble_name_text:
+    size +40
+style bubble_top_right_what is bubble_text
+style bubble_top_right_vbox:
+    spacing 16
+
 style bubble_right_small_who is bubble_name_text:
     size +40
 style bubble_right_small_what is bubble_text:
     size 35
     xalign 0.1
 style bubble_right_small_vbox:
+    spacing 16
+
+style bubble_left_tall_who is bubble_name_text:
+    size +40
+style bubble_left_tall_what is bubble_text:
+    size 35
+    xalign 0.1
+style bubble_left_tall_vbox:
     spacing 16
 
 style bubble_right_tall_who is bubble_name_text:

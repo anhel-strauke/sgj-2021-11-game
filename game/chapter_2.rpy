@@ -80,6 +80,4 @@ label chapter_2:
 
     pause 2.0
 
-    return
-
     jump chapter_3

@@ -7,3 +7,4 @@ init -1:
     define artist = Character("Artist")
     define lady_mask = Character("Masked Lady")
     define passer = Character("Passer")
+    define iso = Character("iso")
