@@ -74,7 +74,7 @@ init -1:
         "top_left_th": {
             "image": "ui_images/bubble/bubble_thoughts_top_left.png",
             "anchor": (0.1, 0.0),
-            "text_pos": (61, 107),
+            "text_pos": (45, 25),
             "text_size": (1095, 195),
             "style_prefix": "bubble_th"
         }
