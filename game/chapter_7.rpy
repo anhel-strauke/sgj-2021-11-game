@@ -61,7 +61,7 @@ label chapter_7:
             h7 "Это очень ж-ж-жутко выглядит."
             h7 "Нет-нет, я к такому точно не готова."
             $ Myo_value += 2
-            $ money_value +=5
+            $ money_value +=10
             pause 2.0
             jump chapter_8
         "Спуститься в подвал":
@@ -145,7 +145,7 @@ label chapter_7s2:
         "Сбежать и взять мелочь":
             h7 "Это очень ж-ж-жутко выглядит."
             h7 "Нет-нет, я к такому точно не готова."
-            $ Myo_value += 2
+            $ Myo_value += 1
             $ money_value +=5
             pause 2.0
             jump chapter_8
