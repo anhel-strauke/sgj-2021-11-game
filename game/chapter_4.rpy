@@ -2,7 +2,7 @@ label chapter_4:
     $ location("payphone")
 
     define h4 = CharacterAt(hero, (1140 , 640), "left_tall")
-    define h4_idea = CharacterAt(hero, (140, 240), "top_left_th")
+    define h4_idea = CharacterAt(hero, (740, 140), "top_left_th")
     define ph4 = CharacterAt(pharmacist, (1235, 440), "right_tall")
 
     scene black
@@ -37,6 +37,5 @@ label chapter_4:
     h4_idea "Все, что начинается плохо, кончается еще хуже"
 
     pause
-    return
 
     jump chapter_5
