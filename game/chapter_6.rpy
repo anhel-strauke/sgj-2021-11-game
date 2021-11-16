@@ -9,7 +9,7 @@ label chapter_6:
     scene black
     with dissolve
 
-    show bg street:
+    show bg square:
         zoom 0.5
     show artist:
         zoom 0.2

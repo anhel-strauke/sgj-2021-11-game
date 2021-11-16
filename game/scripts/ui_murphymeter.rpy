@@ -7,7 +7,7 @@ init:
     default money_value = 0
     default Myo_current = 0.0
     default money_current = 0
-    define Myo_step = 1.0/30.0
+    define Myo_step = 2.0/30.0
 
 init python:
     def update_murphymeter():

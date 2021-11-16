@@ -45,6 +45,7 @@ label good_ending:
 
     pause 1.0
 
+    $ ss_game_end()
     return
 
 label bad_ending:
@@ -84,8 +85,8 @@ label bad_ending:
     c11 "Мяу..."
 
     show cat_sad:
-        anchor (0.5, 1.0) xzoom 0.2 yzoom 0.2 xpos 1920-400 ypos 0.95
-        linear 0.1 xzoom -0.2
+        anchor (0.5, 1.0) xpos 1920-400 ypos 0.95
+        linear 0.1 xzoom -1
     pause 0.1
     hide cat_sad
     with moveoutright
@@ -100,4 +101,5 @@ label bad_ending:
 
     pause 1.0
 
+    $ ss_game_end()
     return

@@ -1,11 +1,11 @@
 label chapter_10:
-    $ location("райончик")
+    $ location("Район Пахифеи")
 
     define h10 = CharacterAt(hero, (1160 , 540), "left_tall")
     define h10_idea = CharacterAt(hero, (740, 140), "top_left_th")
-    define r10 = CharacterAt(rouge, (1140 , 440), "right_tall")
-    define s10 = CharacterAt(rouge, (1640 , 240), "right_tall")
-    define a10 = CharacterAt(rouge, (1340 , 640), "right_tall")
+    define r10 = CharacterAt(rogue, (1140 , 440), "right_tall")
+    define s10 = CharacterAt(rogue, (1640 , 240), "right_tall")
+    define a10 = CharacterAt(rogue, (1340 , 640), "right_tall")
     define p10 = CharacterAt(poor, (1240 , 440), "right_tall")
     define p10_long = CharacterAt(poor, (1335, 90), "top_right_big")
     define iso5_10 = CharacterAt(iso, (0.4, 0.3), "right_tall", name = "Голос из громкоговорителя")
@@ -89,13 +89,11 @@ label chapter_10s1:
     scene black
 
     show bg industrial2:
-        alpha 0
         zoom 0.5
-        linear 2 alpha 1
-
     show gg_ride:
         zoom 0.3
         xpos 10 ypos 400
+    with Dissolve(2)
 
     h10_idea "Ох, ну и запах. Это все из-за отходов фабрики.."
     pause 1.0
@@ -106,19 +104,19 @@ label chapter_10s1:
     h10_idea "Ой, я должна проверить- на месте ли лекарства."
     pause 2.0
 
-    show rouge:
+    show rogue:
         xpos 1100 ypos 0.3
         zoom 0.3
         alpha 0
         linear 2 alpha 1
 
-    show rouge2:
+    show rogue2:
         xpos 1300 ypos 0.3
         zoom 0.3
         alpha 0
         linear 2 alpha 1
 
-    show rouge3:
+    show rogue3:
         xpos 1500 ypos 0.3
         zoom 0.3
         alpha 0

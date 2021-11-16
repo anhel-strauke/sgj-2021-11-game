@@ -11,5 +11,5 @@ init -1:
     define darklady = Character("Мисс Дарк")
     define vivi = Character("Вивиен")
     define nelly = Character("Нелли")
-    define rouge = Character("Бандит")
+    define rogue = Character("Бандит")
     define poor = Character("Нищий")

@@ -21,6 +21,8 @@ label chapter_9:
 
     pause 1.0
 
+    $ location("Набережная Бьеншан 8")
+
     if not doll_broken:
         jump chapter_9s1
 

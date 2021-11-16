@@ -8,7 +8,7 @@ screen main_menu():
         if ss_has_continue():
             button action ContinueGame() style "main_menu_cta_button" foreground "ui_images/button/[prefix_]mm_continue.png"
             if ss_has_saves():
-                button foreground "ui_images/button/[prefix_]mm_saves.png" action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
+                button foreground "ui_images/button/[prefix_]mm_saves.png" action ShowMenu("load")
             button foreground "ui_images/button/[prefix_]mm_start_again.png" action Confirm(
                 _("Вы хотите начать игру заново? Весь несохранённый прогресс будет потерян."), 
                 yes=Start()
@@ -16,9 +16,9 @@ screen main_menu():
         else:
             button action Start() style "main_menu_cta_button" foreground "ui_images/button/[prefix_]mm_start.png"
             if ss_has_saves():
-                button foreground "ui_images/button/[prefix_]mm_saves.png" action ShowMenu("load", _transition=CropMove(0.3, "slideleft"))
-        button foreground "ui_images/button/[prefix_]mm_settings.png" action ShowMenu("settings", _transition=CropMove(0.3, "slideleft"))
-        button foreground "ui_images/button/[prefix_]mm_about.png" action ShowMenu("about", _transition=CropMove(0.3, "slideleft"))
+                button foreground "ui_images/button/[prefix_]mm_saves.png" action ShowMenu("load")
+        button foreground "ui_images/button/[prefix_]mm_settings.png" action ShowMenu("settings")
+        button foreground "ui_images/button/[prefix_]mm_about.png" action ShowMenu("about")
         if renpy.variant("pc"):
             button foreground "ui_images/button/[prefix_]mm_exit.png" action Quit(confirm=False)
 

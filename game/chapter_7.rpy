@@ -1,6 +1,8 @@
 label chapter_7:
     $ location("«Серенити» 22")
 
+    default was_in_ritual = False
+
     define h7 = CharacterAt(hero, (0.5 , 0.5), "left_tall")
     define h7_idea = CharacterAt(hero, (660, 180), "top_left_th")
     define d7 = CharacterAt(darklady, (0.6, 0.4), "right_tall", name = "мисс Д’Арк")
@@ -67,6 +69,8 @@ label chapter_7:
 
 
 label chapter_7s1:
+
+    $ was_in_ritual = True
 
     scene black
     with dissolve
@@ -135,5 +139,4 @@ label chapter_7s1:
             d7 "Ну это я так, к слову."
 
             $ map_info = ("7-8", "chapter_8")
-
             jump map
