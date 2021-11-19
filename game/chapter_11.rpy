@@ -1,5 +1,5 @@
 label chapter_11:
-    
+    $ location(_("Дом Меллори"))
     define m11 = CharacterAt(hero, (450, 307), "left_big")
     define c11 = CharacterAt(cat, (1253, 795), "cat", name="")
 
@@ -40,13 +40,7 @@ label good_ending:
 
     pause 1.0
 
-    scene black
-    with dissolve
-
-    pause 1.0
-
-    $ ss_game_end()
-    return
+    jump credits
 
 label bad_ending:
     
@@ -96,10 +90,4 @@ label bad_ending:
 
     pause 1.0
 
-    scene black
-    with dissolve
-
-    pause 1.0
-
-    $ ss_game_end()
-    return
+    jump credits

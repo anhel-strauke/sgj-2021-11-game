@@ -1,11 +1,11 @@
 label start:
-
     $ location(_("Дом Меллори"))
 
     define h1 = CharacterAt(hero, (20, 307), "left_big")
     define c1 = CharacterAt(cat, (1253, 795), "cat", name="")
 
     scene black
+    with fade
 
     pause 1.0
 

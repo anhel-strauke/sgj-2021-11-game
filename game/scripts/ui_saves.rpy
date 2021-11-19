@@ -18,22 +18,35 @@ screen save_slots_list(for_save=False):
                             text " " style "slot_date_text"
             $ focus_value = not for_save
             for (slot_index, slot_description, slot_thumbnail, slot_utime) in save_slots:
-                button action Confirm(_("Вы хотите переписать это сохранение?"), yes=SaveSlotAction(for_save, slot_index)) style "slot_button":
-                    default_focus focus_value
-                    $ focus_value = False
-                    hbox:
-                        style "slot_button_hbox"
-                        frame style "slot_thumb_frame":
-                            add slot_thumbnail xsize config.thumbnail_width ysize config.thumbnail_height align (0.5, 0.5)
-                        vbox:
-                            style "slot_button_vbox"
-                            text slot_description style "slot_name_text"
-                            text ss_format_save_time(slot_utime) style "slot_date_text"
-                        if not for_save:
-                            key "save_delete" action Confirm(
-                                        _("Удалить это сохранение? Его нельзя будет восстановить."),
-                                        yes=DeleteSaveSlot(slot_index)
-                                    )
+                if for_save:
+                    button action Confirm(_("Вы хотите переписать это сохранение?"), yes=SaveSlotAction(True, slot_index)) style "slot_button":
+                        default_focus focus_value
+                        $ focus_value = False
+                        hbox:
+                            style "slot_button_hbox"
+                            frame style "slot_thumb_frame":
+                                add slot_thumbnail xsize config.thumbnail_width ysize config.thumbnail_height align (0.5, 0.5)
+                            vbox:
+                                style "slot_button_vbox"
+                                text slot_description style "slot_name_text"
+                                text ss_format_save_time(slot_utime) style "slot_date_text"
+                else:
+                    button action SaveSlotAction(False, slot_index) style "slot_button":
+                        default_focus focus_value
+                        $ focus_value = False
+                        hbox:
+                            style "slot_button_hbox"
+                            frame style "slot_thumb_frame":
+                                add slot_thumbnail xsize config.thumbnail_width ysize config.thumbnail_height align (0.5, 0.5)
+                            vbox:
+                                style "slot_button_vbox"
+                                text slot_description style "slot_name_text"
+                                text ss_format_save_time(slot_utime) style "slot_date_text"
+                                key "save_delete" action Confirm(
+                                            _("Удалить это сохранение? Его нельзя будет восстановить."),
+                                            yes=DeleteSaveSlot(slot_index)
+                                        )
+
 
 style save_slot_list_fixed:
     padding (33, 28)

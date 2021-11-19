@@ -55,7 +55,7 @@ label chapter_6:
             scene black
             with dissolve
             pause 1.0
-            show bg street:
+            show bg square:
                 zoom 0.5
             show gg_ride:
                 anchor (0.5, 0.8) zoom 0.2 xpos 1200-800 ypos 0.95
@@ -73,7 +73,7 @@ label chapter_6:
             scene black
             with dissolve
             pause 1.0
-            show bg street:
+            show bg square:
                 zoom 0.5
             show gg_ride:
                 anchor (0.5, 0.8) zoom 0.2 xpos 1200-800 ypos 0.95

@@ -43,10 +43,10 @@ label game_menu:
     python:
         renpy.hide_screen("hint")
         if not pause_screenshot:
-            pause_screenshot = im.Data(renpy.screenshot_to_bytes((1920/2, 1080/2)), "screenshot.png")
-        ss_save_pause()
-        renpy.take_screenshot()
+            pause_screenshot = im.Data(renpy.screenshot_to_bytes((1920/4, 1080/4)), "screenshot.png")
+        #ss_save_pause()
+    python:
         renpy.call_screen("_game_menu", pause_screenshot)
         del pause_screenshot
         pause_screenshot = None
-        ss_load_pause()
+        #ss_load_pause()

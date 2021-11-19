@@ -7,23 +7,17 @@ define gui.about = _("""{size=+16}Курьерская История{/size}
 
 Над игрой работали:
 
-Дина Грико — концепция, управление проектом
-Тимирлан Кенжибаев — сценарий, тексты
-Наталья «NielNoel» Субботина-Чукальская — сценарий, тексты
-Яна Юрцевич — графика
-Ольга «Ринделин» Сердюк — графика
-Анна «Крапива» Тимофеева — UI
-Анатолий «Анхель» Грико — программирование, анимации
-Ekko — программирование, анимации
-Ziczin — музыка
 """)
 
-define gui.game_licenses_info = _("""Исходный код игры распространяется под лицензией GNU GPL v3
-Музыка, звуки, графика — CC BY-NC-ND 4.0
+define gui.game_licenses_info = _("""В игре использован шрифт «Blogger Sans» (создан командой сайта FirstSiteGuide.com, по лицензии Creative Commons Attribution 4.0, {a=https://firstsiteguide.com/new-blogger-sans-font/}подробности здесь{/a}).
+
+Исходный код игры распространяется под лицензией GNU GPL v3 ({a=https://www.gnu.org/licenses/gpl-3.0.html}текст лицензии{/a}).
+Тексты, музыка, звуки, графика — под лицензией Creative Commons Attribution-NonCommercial-NoDerivs 3.0 ({a=https://creativecommons.org/licenses/by-nc-nd/3.0/}текст лицензии{/a}).
 """)
 
 screen about():
     tag menu
+    $ about_text = gui.about + credits_make_about_text()
     fixed:
         add "ui_images/bg_window.png"
         add "ui_images/about_name.png" at:
@@ -40,7 +34,7 @@ screen about():
                 window:
                     style_prefix "about"
                     vbox:
-                        text "[gui.about!t]"
+                        text "[about_text!t]"
                         null height 20
                         text _("Сделано в {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n{size=20}[renpy.license!t]{/size}\n\n{size=20}[gui.game_licenses_info!t]{/size}")
 
