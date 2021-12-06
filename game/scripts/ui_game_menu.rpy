@@ -1,10 +1,11 @@
 init python:
     _game_menu_screen = "game_menu"
+    pause_screenshot = None
 
-screen _game_menu(background):
+screen _game_menu():
     zorder 800
     fixed:
-        add background at trans_blur_background
+        #add background at trans_blur_background
         add "ui_images/overlay/confirm.png"
         window:
             style_prefix "game_menu"
@@ -36,17 +37,25 @@ style game_menu_button:
 transform trans_blur_background:
     pos (0, 0)
     size (1920, 1080)
-    blur 19.0
+    blur 1.0
+    linear 0.3 blur 5.0
 
 label game_menu:
-    default pause_screenshot = None
     python:
         renpy.hide_screen("hint")
-        if not pause_screenshot:
-            pause_screenshot = im.Data(renpy.screenshot_to_bytes((1920/4, 1080/4)), "screenshot.png")
+        try:
+            if not pause_screenshot:
+                pause_screenshot = im.Data(renpy.screenshot_to_bytes((1920/10, 1080/10)), "screenshot.png")
+        except NameError:
+            pause_screenshot = im.Data(renpy.screenshot_to_bytes((1920/10, 1080/10)), "screenshot.png")
         #ss_save_pause()
+    show expression pause_screenshot as pause_screenshot at trans_blur_background
+    with None
+    pause 0.3
+    call screen _game_menu
+    hide pause_screenshot
+    with None
     python:
-        renpy.call_screen("_game_menu", pause_screenshot)
         del pause_screenshot
         pause_screenshot = None
         #ss_load_pause()

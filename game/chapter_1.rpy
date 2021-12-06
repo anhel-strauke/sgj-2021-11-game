@@ -2,7 +2,7 @@ label start:
     $ location(_("Дом Меллори"))
 
     define h1 = CharacterAt(hero, (20, 307), "left_big")
-    define c1 = CharacterAt(cat, (1253, 795), "cat", name="")
+    define c1 = CharacterAt(cat, (1253, 815), "cat", name="")
 
     scene black
     with fade
@@ -21,7 +21,7 @@ label start:
 
     $ location(_("Дом Меллори"))
 
-    show cat:
+    show cat happy:
         anchor (0.5, 1.0) zoom 0.2 xpos 1920-400 ypos 0.95
     with moveinright
 
@@ -31,12 +31,11 @@ label start:
 
     c1 "Мауууу-мау!"
 
-    h1 "Подожди, сейчас проверю пачку."
+    h1 "Подожди, будет тебе еда!"
 
     pause 1.0
 
-    h1 "Кажется, ничего не осталось."
-
+    h1 "Ох, кажется, ничего не осталось."
     h1 "Может, на полке или в ящике…"
 
     pause 1.0
@@ -45,16 +44,20 @@ label start:
 
     c1 "Мяу?"
 
-    h1 "Подожди, сейчас сбегаю в лавку, оставалась же мелочь."
+    #h1 "Сейчас сбегаю в лавку, принесу тебе ."
 
     pause 1.0
 
-    h1 "В кармане пара монет, на еду ни тебе, ни мне не хватит."
+    h1 "В кармане пара медяков, на еду ни тебе, ни мне не хватит."
+
+    show cat trouble
+    with dissolve
 
     c1 "Мяу…"
 
     $ Myo_value = 0
 
+    h1 "Корм для Томми стоит 30 монет."
     h1 "Котик, я обязательно принесу поесть вечером, только заработаю…"
 
     $ map_info = ("1-2", "chapter_2")

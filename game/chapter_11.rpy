@@ -1,93 +1,59 @@
-label chapter_11:
-    $ location(_("Дом Меллори"))
-    define m11 = CharacterAt(hero, (450, 307), "left_big")
-    define c11 = CharacterAt(cat, (1253, 795), "cat", name="")
+init:
+    image bridge_layer_1 = Composite((1964 * 2, 1080), (0, 0), "bridge_l1", (1964, 0), "bridge_l1")
+    image bridge_layer_2 = Composite((3840 * 2, 614), (0, 0), "bridge_l2", (3840, 0), "bridge_l2")
+    image bridge_layer_3 = Composite((2240 * 2, 680), (0, 0), "bridge_l3", (2240, 0), "bridge_l3")
+    image bridge_layer_4= Composite((2070 * 2, 399), (0, 0), "bridge_l4", (2070, 0), "bridge_l4")
+    image bridge_layer_5 = Composite((1920 * 2, 698), (0, 0), "bridge_l5", (1920, 0), "bridge_l5")
 
+    transform trans_bridge_moving_layer(target_x, base_y, t):
+        anchor (0, 0)
+        ypos base_y
+        block:
+            xpos target_x
+            linear t xpos 0
+            repeat
+    
+    transform trans_bridge_zep:
+        anchor (0, 0)
+        ypos 29
+        xpos 558
+        linear 175 xpos -387
+        block:
+            5.0
+            xpos 1920
+            linear 420.0 xpos -387
+            repeat
+
+label chapter_11:
     scene black
     with dissolve
-    scene bg home:
-        xalign 0.5 yalign 0.5 alpha 1.0 zoom 0.5
+
+    $ renpy.maximum_framerate(3600 * 24 * 365) # Максимальный FPS на год
+
+    show bridge_layer_1 at trans_bridge_moving_layer(-1964, 0, 120.0)
+    show bridge_layer_2 at trans_bridge_moving_layer(-3840, 0, 108.0)
+    show bridge_zep at trans_bridge_zep
+    show bridge_layer_3 at trans_bridge_moving_layer(-2240, 0, 36.0)
+    show bridge_layer_4 at trans_bridge_moving_layer(-2070, 393, 16.0)
+    show bridge_layer_5 at trans_bridge_moving_layer(-1920, 382, 0.8)
     with dissolve
-
-    if money_value < 30:
-        jump bad_ending
-    jump good_ending
-
-label good_ending:
-
-    show gg_def:
-        zoom 0.16 anchor (0.5, 1.0) pos (0.2, 0.9)
-    with moveinleft
-    show cat_trouble:
-        anchor (0.5, 1.0) zoom 0.2 xpos 1920-400 ypos 0.95
-    with moveinright
-
-    m11 "Я дома. Все ужасы и кошмары этого дня позади. Усталая и разбитая, но дома с котейкой."
-    c11 "Мяу."
-    m11 "Котик, мой любимый пушистик. Ты же моё когтистое сокровище."
-    m11 "Сейчас пересчитаю деньги, их должно хватить. Хоть 30 монет-то я заработала?"
-    c11 "Мяууу-Мяууу!"
-    m11 "Их хватает. Хватает тебе на еду! Сегодня все было не зря, ты поешь вкусненькое."
-
-    hide cat_trouble
-    show cat:
-        anchor (0.5, 1.0) zoom 0.2 xpos 1920-400 ypos 0.95
-    with dissolve
-
-    c11 "Мяу!"
-
-    m11 "Хорошее завершение этого странного и удивительного дня."
 
     pause 1.0
 
-    jump credits
-
-label bad_ending:
+    show gg_ride:
+        xzoom -0.3
+        yzoom 0.3
+        anchor (0.5, 1.0)
+        ypos 1320
+        xpos 2579
+        easein_quad 1.0 xpos 1360
+    pause 1.0
+    show gg_ride:
+        xpos 1360
     
-    show gg_def:
-        zoom 0.16 anchor (0.5, 1.0) pos (0.2, 0.9)
-    with moveinleft
-    show cat_trouble:
-        anchor (0.5, 1.0) zoom 0.2 xpos 1920-400 ypos 0.95
-    with moveinright
+    pause
 
-    m11 "Воспоминания о сегодняшнем дне будут снится мне в кошмарах."
-    m11 "Хотя, мне часто снятся кошмары."
+    $ renpy.maximum_framerate(None)
 
-    c11 "Мяу."
-
-    m11 "День сложных выборов и тяжёлых событий. Возможно, все было не зря. Мой кот поест."
-
-    c11 "Мяууу-Мяууу!"
-
-    m11 "Надо пересчитать заработанное, мешок корма для Тимми стоит 30 монет."
-
-    c11 "Мяу?"
-
-    m11 "Тут их нет. Мой кот целый день голоден, и даже сейчас я не могу его покормить."
-    m11 "Денег за весь день не набирается даже на пакет корма для него."
-
-    c11 "Мяу? Мяу!!!"
-
-    m11 "Мне очень жаль."
-
-    hide cat_trouble
-    show cat_sad:
-        anchor (0.5, 1.0) zoom 0.2 xpos 1920-400 ypos 0.95
-    with dissolve
-
-    c11 "Мяу..."
-
-    show cat_sad:
-        anchor (0.5, 1.0) xpos 1920-400 ypos 0.95
-        linear 0.1 xzoom -1
-    pause 0.1
-    hide cat_sad
-    with moveoutright
-
-    m11 "Да, Тимми, тебе надо покушать."
-    m11 "Может новые хозяева тебя покормят. Они будут лучше меня."
-
-    pause 1.0
-
-    jump credits
+    $ map_info = ("11-12", "chapter_12")
+    jump map

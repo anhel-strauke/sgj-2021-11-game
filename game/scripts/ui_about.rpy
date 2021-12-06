@@ -11,6 +11,8 @@ define gui.about = _("""{size=+16}Курьерская История{/size}
 
 define gui.game_licenses_info = _("""В игре использован шрифт «Blogger Sans» (создан командой сайта FirstSiteGuide.com, по лицензии Creative Commons Attribution 4.0, {a=https://firstsiteguide.com/new-blogger-sans-font/}подробности здесь{/a}).
 
+Игра использует библиотеку {b}Kinetic-Text-Tags{/b} 3.1 за авторством SoDaRa по лицензии MIT ({a=https://github.com/SoDaRa/Kinetic-Text-Tags}репозиторий проекта{/a}, {a=https://raw.githubusercontent.com/SoDaRa/Kinetic-Text-Tags/main/LICENSE}текст лицензия{/a}).
+
 Исходный код игры распространяется под лицензией GNU GPL v3 ({a=https://www.gnu.org/licenses/gpl-3.0.html}текст лицензии{/a}).
 Тексты, музыка, звуки, графика — под лицензией Creative Commons Attribution-NonCommercial-NoDerivs 3.0 ({a=https://creativecommons.org/licenses/by-nc-nd/3.0/}текст лицензии{/a}).
 """)

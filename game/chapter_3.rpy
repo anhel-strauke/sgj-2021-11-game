@@ -1,21 +1,26 @@
-label chapter_3:
+init:
+     transform trans_ch3_claude:
+          anchor (0.5, 0.45) zoom 0.6 xpos 1100 ypos 0.99
+     
+     transform trans_ch3_mellory:
+          anchor (0.5, 0.6) zoom 0.4 xpos 1500-800 ypos 0.99
+     
+     default claude_died = False
 
+label chapter_3:
      $ location("Эббот Роуд, 15")
 
-     define h3 = CharacterAt(hero)
+     define h3 = CharacterAt(hero, (560, 740), "top_left_big")
      define h3_idea = CharacterAt(hero, (140, 640), "top_left_th")
-     define su3 = CharacterAt(suicide, (0.3, 0.3), "right_tall", name ='Клод')
+     define h3_last_idea = CharacterAt(hero, (540, 180), "top_left_th")
+     define su3 = CharacterAt(suicide, (664, 324), "right_very_tall")
 
      scene black
      with dissolve
 
      show bg street:
           zoom 0.5
-          alpha 0
-          linear 2 alpha 1
-     pause 2.0
-     show bg street:
-          zoom 0.5 alpha 1
+     with dissolve
      
      $ location("Эббот Роуд, 15")
 
@@ -23,10 +28,11 @@ label chapter_3:
           anchor (0.5, 0.6) zoom 0.4 xpos 1500-800 ypos 0.99
      with moveinleft
 
-     pause 1.0
+     pause 0.5
+
+     h3 "Эббот Роуд, 15… Кажется, это здесь."
 
      hide gg_ride
-
      show bg door2 close:
           zoom 1.0
      with dissolve
@@ -37,11 +43,11 @@ label chapter_3:
 
      pause 1.0
 
-     h3_idea "Почему никто не открывает? Не могла же я напутать с адресом.."
+     h3_idea "Почему никто не открывает? Не могла же я напутать с адресом…"
 
      #Звук стука в дверь
 
-     h3_idea "Ну вот, теперь придется возвращаться в лавку с пустыми руками"
+     h3_idea "Ну вот, теперь придётся возвращаться в аптеку с пустыми руками."
 
      show bg door2 open
      with dissolve
@@ -49,25 +55,15 @@ label chapter_3:
      pause 1.0
 
 
-     show suicide:
-          anchor (0.5, 0.6) zoom 0.4 xpos 1000 ypos 0.99
+     show suicide at trans_ch3_claude
      with dissolve
 
-     su3 "Кто вы?"
+     su3 "Кто вы?" 
 
-     # show suicide:
-     #      xpos 1000
-     #      linear 0.5 xpos 1400
-     # pause 0.5
-     # show suicide:
-     #      xpos 1400
-
-     # show gg_def:
-     #      anchor (0.8, 0.6) zoom 0.4 xpos 1800-800 ypos 0.99
-     # with moveinleft
-
+     call ch3_show_mellory from _call_ch3_show_mellory
      h3 "Добрый день. У меня посылка к господину Фолкстону. Это вы?"
 
+     call ch3_show_claude from _call_ch3_show_claude
      su3 "Всё верно."
 
      pause 1.0
@@ -77,7 +73,7 @@ label chapter_3:
 
      #Клауд загибается от кашля, видимо тут нужен звук.
 
-     su3 "“Гарпирий”, как я просил…"
+     su3 "“Гарпирий”, как я и просил…"
 
      h3_idea "Что он сказал? Мне послышалось?"
 
@@ -85,68 +81,83 @@ label chapter_3:
      su3 "Спасибо вам, юная леди. И передайте мою благодарность хозяйке аптечной лавки."
 
      su3 "Кхе-кхе…"
+     
 
-     su3 "Возьмите. Это за средство и за доставку. Даже больше. Прощайте…"
+     su3 "Возьмите. Это за средство и за доставку. Даже больше.\nПрощайте…"
 
-     # hide suicide
-
-     # show gg_def:
-     #      anchor (0.8, 0.6) zoom 0.4 xpos 1800-800 ypos 0.99
+     call ch3_show_mellory from _call_ch3_show_mellory_1
 
      h3 "Постойте! В этом флаконе…"
      h3 "Вы сказали, что это “Гарпирий”? Это же сильнейший яд!"
      h3 "Его же вводят преступникам во время казни! Зачем он вам?"
 
-     # hide gg_def
+     call ch3_show_claude from _call_ch3_show_claude_1
 
-     #show suicide:
-     #     anchor (0.5, 0.6) zoom 0.4 xpos 1800-800 ypos 0.99
-
-     su3 "Хах… Я вижу, вы не просто курьер, а прилежная ученица аптекаря."
+     su3 "Надо же… Я вижу, вы не просто курьер, а прилежная ученица аптекаря."
      su3 "Кхе-кхе-кхе…"
-     su3 "Вам не понять."
-     su3 "Возьмите деньги и оставьте меня в покое.."
+     su3 "Видите ли… Моя болезнь неизлечима. И причиняет мне сильнейшую боль. Вам не понять."
+     su3 "Возьмите деньги и оставьте меня в покое…"
 
      h3_idea "Отдать яд в руки человека, который пытается покончить с собой… Я всегда мечтала помогать людям, что же я делаю?"
 
      menu:
           "Выхватить флакон и убежать":
-               # hide suicide
-               # show gg_def:
-               #      anchor (0.8, 0.6) zoom 0.4 xpos 1800-800 ypos 0.99
+               call ch3_show_mellory from _call_ch3_show_mellory_2
                h3 "Простите меня, но я не смогу с этим жить!"
-               pause 1.0
-               #hide gg_def
-               h3_idea "Госпоже это точно не понравится… Но как она могла поручить мне такое?"
-               pause 1.0
-               $ Myo_value += 2
-               pause 1.0
+               show gg_ride:
+                    anchor (0.5, 0.6) zoom 0.4 xpos 700 ypos 0.99
+                    ease 0.2 xpos 300
+               pause 0.2
+               show gg_ride:
+                    anchor (0.5, 0.6) zoom 0.4 xpos 300 ypos 0.99
+               h3_last_idea "Госпоже это точно не понравится… Но как она могла поручить мне такое?"
+               hide gg_ride
+               with moveoutleft
+               pause 2.0
 
           "Попытаться отговорить":
-               # hide suicide
-               # show gg_def:
-               #      anchor (0.8, 0.6) zoom 0.4 xpos 1800-800 ypos 0.99
+               call ch3_show_mellory from _call_ch3_show_mellory_3
                h3 "Вы ошибаетесь! "
                h3 "Я всего лишь ученица аптекаря, но знаю что существует великое множество лекарств."
-               h3 " Что-то из них может вам помочь!"
+               h3 "Что-то из них может вам помочь!"
+               
+               call ch3_show_claude from _call_ch3_show_claude_2
                pause 1.0
-               # hide gg_def
-               # show suicide:
-               #      anchor (0.5, 0.6) zoom 0.4 xpos 1800-800 ypos 0.99
-
-               su3 "Так наивно… Учитель еще многого не рассказал вам."
-               pause 1.0
+               su3 "Так наивно… Учитель ещё многого не рассказал вам."
+               su3 "{size=-2}Плохие вещи случаются, как бы мы ни старались это предотвратить.{/size}"
+               hide suicide
+               with dissolve
+               show bg door2 close
+               with hpunch
                $ Myo_value += 1
                $ money_value += 5
-               pause 1.0
+               $ claude_died = True
+               pause 2.0
 
           "Забрать деньги и уйти":
                su3 "Спасибо за вашу работу. Еще раз, моя искренняя благодарность госпоже…"
+               hide suicide
+               with dissolve
                $ money_value +=10
-               hide bg door_open
-               show bg door close:
-                    zoom 0.5
+               $ Myo_value += 2
+               $ claude_died = True
+               show bg door2 close
+               with dissolve
                pause 1.0
 
      $ map_info = ("3-4", "chapter_4")
      jump map
+
+label ch3_show_claude:
+     hide gg_ride
+     show bg door2 open:
+          zoom 1.0
+     show suicide at trans_ch3_claude
+     with None
+     return
+
+label ch3_show_mellory:
+     hide suicide
+     show bg street:
+          zoom 0.5
+     show gg_ride at trans_ch3_mellory

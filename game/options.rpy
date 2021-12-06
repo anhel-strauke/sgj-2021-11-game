@@ -2,7 +2,7 @@
 
 ## Game itself
 define config.name = _("Курьерская История")
-define config.version = "0.1"
+define config.version = "0.2"
 define build.name = "CourierStory"
 
 define config.has_sound = True

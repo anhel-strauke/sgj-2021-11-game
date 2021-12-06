@@ -1,31 +1,30 @@
 label chapter_4:
     $ location("Таксофон на Эббот")
 
-    define h4 = CharacterAt(hero, (1140 , 640), "left_tall")
+    define h4 = CharacterAt(hero, (590, 640), "left_very_tall")
     define h4_idea = CharacterAt(hero, (740, 180), "top_left_th")
-    define ph4 = CharacterAt(pharmacist, (1235, 440), "right_tall")
+    define ph4 = CharacterAt(pharmacist, (1235, 440), "right_very_tall")
 
     scene black
     with dissolve
 
     show bg payphone:
-        alpha 0
         zoom 0.5
-        linear 2 alpha 1
-    pause 2
-    show bg payphone:
-        alpha 1
-        zoom 0.5
+    with dissolve
+    
     $ location("Таксофон на Эббот")
 
     show gg_ride:
         anchor (0.8, 0.6) zoom 0.5 xpos 0.6 ypos 1.3
     with moveinleft
 
+    pause 1.0
+
     ph4 "Да-да?"
 
     h4 "Здравствуйте… Это Мэллори."
-    h4 "Это был очень тяжёлый заказ, не уверена, что поступила правильно."
+    # Уменьшить размер шрифта чуть-чуть, иначе некрасиво надпись в баббле выглядит, рваный правый край
+    h4 "{size=-2}Это был очень тяжёлый заказ, не уверена, что поступила правильно.{/size}"
 
     ph4 "В жизни бывает сложный выбор, дитя моё. Порой мы все должны его принять."
     ph4 "Не усматривай злого умысла в том, что вполне объяснимо глупостью."

@@ -1,50 +1,68 @@
 init:
-
+    # map_info[0] - название маршрута из словаря map_routes
+    # map_info[1] - имя метки, на которую происходит переход после маршрута
     default map_info = ("", "")
-
-    define hm = CharacterAt(hero)
-    define driver = CharacterAt(hero, name=_("Водитель"))
 
     define map_points = {
         1: {
             "name": _("Квартира Мэллори"),
-            "pos": (629, 728)
+            "pos": (629, 728),
+            "text_pos": (579, 694),
+            "text_align": (1.0, 0.5)
         },
         2: {
             "name": _("Аптека Амелинды"),
-            "pos": (799, 818)
+            "pos": (799, 818),
+            "text_pos": (800, 842),
+            "text_align": (0.5, 0.0)
         },
         3: {
             "name": _("Эббот Роуд 15"),
-            "pos": (629, 351)
+            "pos": (629, 351),
+            "text_pos": (574, 302),
+            "text_align": (1.0, 0.5)
         },
         4: {
             "name": _("Таксофон на Эббот"),
-            "pos": (736, 351)
+            "pos": (736, 351),
+            "text_pos": (798, 314),
+            "text_align": (0.0, 0.5)
         },
         5: {
             "name": _("Броад Стрит 54"),
-            "pos": (416, 836)
+            "pos": (416, 836),
+            "text_pos": (472, 791),
+            "text_align": (0.0, 0.5)
         },
         6: {
             "name": _("Городская площадь"),
-            "pos": (818, 580)
+            "pos": (818, 580),
+            "text_pos": (888, 540),
+            "text_align": (0.0, 0.5)
         },
         7: {
-            "name": _("Частный сектор \"Серенити 22\""),
-            "pos": (340, 325)
+            "name": _("Частный сектор „Серенити 22”"),
+            "pos": (340, 325),
+            "text_pos": (408, 273),
+            "text_align": (0.0, 0.5)
         },
         9: {
             "name": _("Набережная Бьеншан 8"),
-            "pos": (1294, 885)
+            "pos": (1294, 885),
+            "text_pos": (1347, 837),
+            "text_align": (0.0, 0.5)
         },
         10: {
             "name": _("Район Пахифеи 13384"),
-            "pos": (1469, 187)
+            "pos": (1469, 187),
+            "text_pos": (1411, 146),
+            "text_align": (1.0, 0.5)
         },
         11: {
             "name": _("Мост через реку Спирит"),
-            "pos": (871, 459)
+            "pos": (871, 459),
+            "text_pos": (814, 413),
+            "text_align": (1.0, 0.5)
         }
     }
 
@@ -217,13 +235,13 @@ init -1 python:
         segments_appear = []
         segments_fix = []
         cw_angle = sg.angle
-        print("Line from (%f, %f) to (%f, %f), length %f, n_segments %d" % (p_from[0], p_from[1], p_to[0], p_to[1], sg.length, n_segments))
+        #print("Line from (%f, %f) to (%f, %f), length %f, n_segments %d" % (p_from[0], p_from[1], p_to[0], p_to[1], sg.length, n_segments))
         for i in xrange(n_segments):
             seg_pos = sg.interp_p(line_pos)
             seg_pos = (int(seg_pos[0]), int(seg_pos[1]))
             segment_appear_img = At("map_segment_image", trans_map_segment_appear(seg_pos, cw_angle, seg_delay))
             segment_fix_img = At("map_segment_image", trans_map_segment_fix(seg_pos, cw_angle))
-            print("Segment %d: delay %f, line_pos %f, cw_angle %f, pos (%f, %f)" % (i, seg_delay, line_pos, cw_angle, seg_pos[0], seg_pos[1]))
+            #print("Segment %d: delay %f, line_pos %f, cw_angle %f, pos (%f, %f)" % (i, seg_delay, line_pos, cw_angle, seg_pos[0], seg_pos[1]))
             line_pos += map_segment_length
             seg_delay += map_segment_delay
             segments_appear.append(segment_appear_img)
@@ -294,6 +312,16 @@ init -1 python:
         for (i, img) in enumerate(stage_fix):
             tag_name = "map_segment_%d_%d" % (stage_index, i)
             renpy.show(tag_name, what=img, tag=tag_name, behind=["map_from_marker", "map_to_marker"])
+    
+    def map_make_label_descriptions(route_id):
+        try:
+            route = map_routes[route_id]
+            return (
+                map_points[route["from"]],
+                map_points[route["to"]]
+            )
+        except KeyError:
+            return (None, None)
 
 transform trans_map_marker_appear(position):
     pos position
@@ -303,8 +331,7 @@ transform trans_map_marker_appear(position):
         alpha 0.0
         0.4
         alpha 1.0
-        repeat 4
-        
+        repeat 2
 
 transform trans_map_marker_fix(position):
     pos position
@@ -326,6 +353,10 @@ transform trans_map_segment_fix(position, rot_angle, apppear_delay=0):
     rotate_pad False
     alpha 1.0
 
+transform trans_map_label_appear(position, alignment):
+    align alignment
+    pos position
+
 transform trans_map_road_show:
     anchor (0, 0)
     pos (0, -2160)
@@ -339,6 +370,28 @@ transform trans_map_road_move:
 transform trans_map_road_stop:
     anchor (0, 0)
 
+screen map_labels(labels):
+    fixed:
+        for lab in labels:
+            if lab:
+                frame anchor lab["text_align"] pos lab["text_pos"]:
+                    style_prefix "map_label"
+                    text lab["name"]
+
+style map_label_frame:
+    background Frame("ui_images/map/map_label_bg.png", Borders(12, 12, 12, 12))
+    xmaximum 320
+    xpadding 10
+    ypadding 10
+
+style map_label_text is ui_text:
+    size 36
+    color "#000000"
+    text_align 0.5
+    italic True
+    bold True
+
+# Должна быть задана переменная map_info
 label map:
     $ route, next_label = map_info
 
@@ -352,13 +405,18 @@ label map:
     with fade
 
     $ (marker_from, marker_to, route_stages) = map_make_stages(route)
+    $ (map_label_from, map_label_to) = map_make_label_descriptions(route)
 
+    show screen map_labels([map_label_from])
+    with Dissolve(0.3)
     show map_marker_image at trans_map_marker_appear(marker_from["pos"]) as map_from_marker
-    pause 2.4
+    pause 1.6
     show map_marker_image at trans_map_marker_fix(marker_from["pos"]) as map_from_marker
     pause 0.5
+    show screen map_labels([map_label_from, map_label_to])
+    with Dissolve(0.3)
     show map_marker_image at trans_map_marker_appear(marker_to["pos"]) as map_to_marker
-    pause 2.4
+    pause 1.6
     show map_marker_image at trans_map_marker_fix(marker_to["pos"]) as map_to_marker
     pause 0.5
 
@@ -384,7 +442,7 @@ label map:
             show map_road at trans_map_road_stop
             show map_event_image at trans_map_marker_appear(route_stage["event_pos"])
             with hpunch
-            pause 2.4
+            pause 1.6
             show map_event_image at trans_map_marker_fix(route_stage["event_pos"])
             pause 0.5
             call expression route_stage["event_label"] from _map_event_label
@@ -394,60 +452,12 @@ label map:
     
     show map_road at trans_map_road_stop
     show map_marker_image at trans_map_marker_appear(marker_to["pos"]) as map_to_marker
-    pause 2.8
+    pause 1.6
     show map_marker_image at trans_map_marker_fix(marker_to["pos"]) as map_to_marker
     pause 1.5
+    hide screen map_labels
     scene black
     with dissolve
 
     jump expression next_label
     
-label map_event_6_7:
-    driver "Сильно ушиблись?"
-
-    hm "Я в порядке, не волнуйтесь."
-    hm "Если бы не сгруппировалась, было бы гораздо хуже…"
-
-    driver "Ваш парокат?"
-
-    hm "Он… Кажется, не заводится."
-
-    driver "Я вижу, двигатель сильно поврежден."
-    driver "Давайте я помогу вам закинуть его в багажник. Довезу вас до ближайшего паромонтажа."
-
-    hm "Я благодарю вас. Надеюсь, я не сильно опоздаю к следующей доставке."
-
-    pause 1.0
-
-    hm "Почему всё не может быть идеально?"
-    $ Myo_value = 0
-    $ money_value = 0
-
-    pause 1.0
-
-    return
-
-label map_event_8_9:
-    driver "Сильно ушиблись?"
-
-    hm "Я в порядке, не волнуйтесь."
-    hm "Если бы не сгруппировалась, было бы гораздо хуже…"
-
-    driver "Ваш парокат?"
-
-    hm "С виду нормально. Пара царапин, не более."
-
-    driver "Что это торчит из вашей сумки? Похоже на какую-то траву, или плюш?"
-
-    hm "Это же…"
-    hm "О, нет! Это кукла, которую я должна сейчас доставить ребенку…"
-    hm "Наверное, она вывалилась из сумки во время падения и зацепилась за что-то…"
-
-    driver "Ясно. Ну, удачи вам с этим, леди."
-    driver "Мне нужно ехать, а то у меня в машине женщина скоро родит."
-    $ Myo_value = 0
-    $ doll_broken = True
-
-    pause 1.0
-
-    return
