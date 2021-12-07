@@ -62,7 +62,8 @@ init:
             "name": _("Мост через реку Спирит"),
             "pos": (871, 459),
             "text_pos": (814, 413),
-            "text_align": (1.0, 0.5)
+            "text_align": (1.0, 0.5),
+            "dont_stop": True
         }
     }
 
@@ -450,7 +451,8 @@ label map:
             pause 0.5
         $ stage_index += 1
     
-    show map_road at trans_map_road_stop
+    if not marker_to.get("dont_stop", False):
+        show map_road at trans_map_road_stop
     show map_marker_image at trans_map_marker_appear(marker_to["pos"]) as map_to_marker
     pause 1.6
     show map_marker_image at trans_map_marker_fix(marker_to["pos"]) as map_to_marker
