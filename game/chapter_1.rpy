@@ -1,5 +1,5 @@
 label start:
-    $ location(_("Дом Меллори"))
+    $ location(_("Квартира Меллори"))
 
     define h1 = CharacterAt(hero, (20, 307), "left_big")
     define c1 = CharacterAt(cat, (1253, 815), "cat", name="")
@@ -19,7 +19,7 @@ label start:
     show bg home:
         xalign 0.5 yalign 0.5 alpha 1.0 zoom 0.5
 
-    $ location(_("Дом Меллори"))
+    $ location(_("Квартира Меллори"))
 
     show cat happy:
         anchor (0.5, 1.0) zoom 0.2 xpos 1920-400 ypos 0.95

@@ -1,6 +1,5 @@
 label chapter_7:
     image black_overlay = "#000000"
-    $ location("Серенити 22")
 
     default was_in_ritual = False
 

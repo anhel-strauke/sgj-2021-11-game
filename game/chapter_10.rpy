@@ -11,8 +11,6 @@ init python:
         
 
 label chapter_10:
-    $ location("Район Пахифеи")
-
     image moving_industrial_bg = Composite((1920 * 2, 1080), 
         (0, 0), "bg_industrial_move",
         (1920, 0), "bg_industrial_move"
@@ -69,6 +67,9 @@ label chapter_10:
         zoom 0.3
         xpos 400 ypos 1500
     with dissolve
+
+    pause 0.1
+    $ location("Район Пахифеи")
 
     if Myo_value >= 3:
         h10_idea "Ох, ну и запах. Столько отходов от одного предприятия…"

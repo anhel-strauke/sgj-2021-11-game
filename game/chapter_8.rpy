@@ -2,8 +2,6 @@ init:
     default doll_broken = False
     
 label chapter_8:
-    $ location("Таксофон на Эббот")
-
     define h8 = CharacterAt(hero, (600 , 640), "left_very_tall")
     #define h8_long = CharacterAt(hero, (430 , 740), "top_left_big")
     define h8_idea = CharacterAt(hero, (600, 590), "top_left_small_th")

@@ -1,6 +1,4 @@
 label chapter_9:
-    $ location("Набережная Бьеншан 8")
-
     define h9 = CharacterAt(hero, (584 , 440), "left_very_tall")
     define h9_long = CharacterAt(hero, (430 , 740), "top_left_big")
     define h9_idea = CharacterAt(hero, (740, 140), "top_left_th")

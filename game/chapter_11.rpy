@@ -55,6 +55,8 @@ label chapter_11:
 
     pause 1.0
 
+    $ location("Мост")
+
     # Приезжает Мэллори из-за правого края экрана
     show gg_ride:
         xzoom -0.3

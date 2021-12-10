@@ -21,6 +21,7 @@ label chapter_6:
     with Dissolve(2.0)
 
     pause 1.0
+    $ location("Городская Площадь")
 
     show gg_ride at trans_ch6_gg
     with moveinleft

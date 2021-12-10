@@ -1,8 +1,6 @@
-﻿define config.save_dump = True
-
-## Game itself
+﻿## Game itself
 define config.name = _("Курьерская История")
-define config.version = "0.2"
+define config.version = "0.3"
 define build.name = "CourierStory"
 
 define config.has_sound = True
@@ -22,7 +20,7 @@ define config.exit_transition = dissolve
 ## Main menu transitions
 
 define config.intra_transition = Dissolve(0.3)
-define config.after_load_transition = None
+define config.after_load_transition = fade
 define config.end_game_transition = fade
 define config.end_splash_transition = Dissolve(1.0)
 define config.game_main_transition = fade
@@ -40,6 +38,13 @@ define config.exit_yesno_transition = Dissolve(0.1)
 
 default preferences.text_cps = 80
 default preferences.afm_time = 15
+
+# Display settings
+
+default preferences.fullscreen = True
+default preferences.gl_powersave = False
+define config.cache_surfaces = True
+
 
 ## Save system settings
 

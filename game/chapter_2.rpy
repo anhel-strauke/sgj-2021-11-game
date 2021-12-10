@@ -7,8 +7,6 @@ label chapter_2:
     scene black
     with dissolve
 
-    $ location("Аптека Амелинды")
-
     show bg_pharmacy:
         anchor (0.5, 0.5)
         pos (0, 1080)

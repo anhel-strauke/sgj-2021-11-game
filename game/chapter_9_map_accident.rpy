@@ -22,6 +22,7 @@ label map_event_8_9:
     driver "Ясно. Ну, удачи вам с этим, леди."
     driver "Мне нужно ехать, а то у меня в машине женщина скоро родит."
     $ Myo_value = 0
+    $ money_value = 0
     $ doll_broken = True
 
     pause 1.0

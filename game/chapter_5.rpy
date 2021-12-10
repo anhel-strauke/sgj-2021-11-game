@@ -1,6 +1,4 @@
 label chapter_5:
-    $ location("Броад Стрит 54")
-
     define h5 = CharacterAt(hero)
     define h5_idea = CharacterAt(hero, (140, 640), "top_left_th")
     define anon5 = CharacterAt(anon, (0.4, 0.3), "right_very_tall")
@@ -12,7 +10,7 @@ label chapter_5:
         zoom 0.5
     with dissolve
     
-    $ location("Броад Стрит 54")
+    $ location("Броад Стрит, 54")
 
     pause 1.0
 
@@ -45,20 +43,11 @@ label chapter_5:
         #"Да я быстрее света!":
         "Ваша посылка летела в клочьях дыма на максимальной скорости!":
             pass
-            # show gg_ride:
-            #     anchor (0.7, 0.6) zoom 0.4 xpos 1500-800 ypos 0.99
-            #h5 "Ваша посылка буквально летела в клочьях дыма на максимальной скорости!"
         #"Возьмите, пожалуйста.":
         "Возьмите пожалуйста. Надеюсь, успела.":
             pass
-            # show gg_ride:
-            #     anchor (0.7, 0.6) zoom 0.4 xpos 1500-800 ypos 0.99
-            #h5 "Возьмите пожалуйста. Надеюсь, успела."
         "Вот то, что вы просили из аптеки.":
             pass
-            # show gg_ride:
-            #     anchor (0.7, 0.6) zoom 0.4 xpos 1500-800 ypos 0.99
-            #h5 "Вот то, что вы просили от Аптекаря. Всё, что может вам помочь, тут есть."
 
     h5_idea "Что это в пакете? Туалетная бумага?.."
 

@@ -1,6 +1,4 @@
 label chapter_4:
-    $ location("Таксофон на Эббот")
-
     define h4 = CharacterAt(hero, (590, 640), "left_very_tall")
     define h4_idea = CharacterAt(hero, (740, 180), "top_left_th")
     define ph4 = CharacterAt(pharmacist, (1235, 440), "right_very_tall")
@@ -33,8 +31,8 @@ label chapter_4:
     ph4 "Все остальные адреса у тебя есть."
 
     h4 "Да, бегу, до связи."
-    h4_idea "Все, что хорошо начинается, кончается плохо."
-    h4_idea "Все, что начинается плохо, кончается еще хуже."
+    h4_idea "Всё, что хорошо начинается, кончается плохо."
+    h4_idea "Всё, что начинается плохо, кончается еще хуже."
 
     pause 1.0
 

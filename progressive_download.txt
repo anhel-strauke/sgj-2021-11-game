@@ -6,4 +6,3 @@
 - image game/ui_images/**
 - image game/**
 + music game/audio/**
-+ voice game/voice/**

@@ -8,8 +8,6 @@ init:
      default claude_died = False
 
 label chapter_3:
-     $ location("Эббот Роуд, 15")
-
      define h3 = CharacterAt(hero, (560, 740), "top_left_big")
      define h3_idea = CharacterAt(hero, (140, 640), "top_left_th")
      define h3_last_idea = CharacterAt(hero, (540, 180), "top_left_th")

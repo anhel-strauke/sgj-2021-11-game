@@ -5,8 +5,8 @@ init:
 init python:
     import datetime as dt
 
-    if persistent.loading_from_pause is None:
-        persistent.loading_from_pause = False
+    # if persistent.loading_from_pause is None:
+    #     persistent.loading_from_pause = False
 
     autosave_file_name = u"current"
     save_file_name_prefix = u"save_"
@@ -105,7 +105,7 @@ init python:
     
     def ss_load_pause():
         if renpy.can_load(pause_save_file_name):
-            persistent.loading_from_pause = True
+            #persistent.loading_from_pause = True
             renpy.load(pause_save_file_name)
 
     def location(name):
@@ -163,11 +163,11 @@ init python:
         return LoadFromSlot(slot_index)
 
 
-label after_load:
-    $ print("After load: loading_from_pause =", persistent.loading_from_pause)
-    if persistent.loading_from_pause:
-        $ persistent.loading_from_pause = False
-        $ renpy.transition(Dissolve(0.3), force=True)
-    else:
-        $ renpy.transition(fade, force=True)
-    return
+# label after_load:
+#     $ print("After load: loading_from_pause =", persistent.loading_from_pause)
+#     if persistent.loading_from_pause:
+#         $ persistent.loading_from_pause = False
+#         $ renpy.transition(Dissolve(0.3), force=True)
+#     else:
+#         $ renpy.transition(fade, force=True)
+#     return

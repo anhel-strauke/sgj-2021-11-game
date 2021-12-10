@@ -1,5 +1,4 @@
 label chapter_12:
-    $ location(_("Дом Меллори"))
     define m11 = CharacterAt(hero, (640, 347), "left_big")
     define c11 = CharacterAt(cat, (1253, 795), "cat", name="")
 
@@ -8,6 +7,9 @@ label chapter_12:
     scene bg home:
         xalign 0.5 yalign 0.5 alpha 1.0 zoom 0.5
     with dissolve
+
+    pause 0.1
+    $ location(_("Квартира Меллори"))
 
     if money_value < 30:
         jump bad_ending
